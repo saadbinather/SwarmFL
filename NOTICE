@@ -1,0 +1,9 @@
+SwarmFL
+Copyright 2026 SwarmFL contributors
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+This product depends on software from the Flower, PyTorch, NumPy, Pydantic,
+scikit-learn, pandas, and other open-source communities. Dependencies remain
+subject to their own licenses. No third-party model weights or datasets are
+distributed in the SwarmFL Python package.

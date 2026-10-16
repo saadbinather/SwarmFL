@@ -1,0 +1,16 @@
+{
+  "checkpoint_dir": "artifacts/milestone02/seed_42",
+  "provider": {"url": "http://127.0.0.1:11435", "model": "qwen2.5:1.5b-instruct", "timeout": 45.0},
+  "clients": [
+    {"specialist": "A", "domain": "demographic/risk"},
+    {"specialist": "B", "domain": "primary symptoms"},
+    {"specialist": "C", "domain": "additional symptoms"}
+  ],
+  "numeric_fields": ["age"],
+  "encodings": {
+    "gender": {"Female": 0, "Male": 1},
+    "symptom": {"No": 0, "Yes": 1}
+  },
+  "budget": 1,
+  "max_agent_steps": 8
+}

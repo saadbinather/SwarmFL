@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use SwarmFL, cite the archived release associated with your experiment."
+title: "SwarmFL: a federated multi-agent research framework"
+type: software
+version: 0.1.0-alpha.1
+license: Apache-2.0
+authors:
+  - name: "SwarmFL contributors"
+repository-code: "https://github.com/saadbinather/SwarmFL"
+url: "https://github.com/saadbinather/SwarmFL"
+abstract: >-
+  Research software for Flower-mediated specialist federation, authorized
+  selected-only consultation, dynamic fusion, verified feedback, and immutable
+  policy versioning. It is not a medical device or a privacy guarantee.

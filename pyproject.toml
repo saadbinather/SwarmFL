@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=83", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swarmfl"
+version = "0.1.0a1"
+description = "Federated multi-agent research framework for authorized specialist consultation"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "SwarmFL contributors"}]
+keywords = ["federated-learning", "flower", "multi-agent", "machine-learning", "research"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "flwr[simulation]==1.40.0",
+  "numpy>=2.1,<3",
+  "pydantic>=2.9,<3",
+  "torch>=2.5,<2.15",
+]
+
+[project.optional-dependencies]
+research = ["pandas>=2.2,<4", "scikit-learn>=1.5,<2", "ucimlrepo==0.0.7"]
+qwen = ["requests>=2.32,<3"]
+dev = ["build>=1.2,<2", "pip-audit>=2.7,<3", "pytest>=8,<10", "ruff>=0.11,<1", "twine>=6,<7"]
+all = ["pandas>=2.2,<4", "requests>=2.32,<3", "scikit-learn>=1.5,<2", "ucimlrepo==0.0.7"]
+
+[project.scripts]
+swarmfl-quickstart = "fed_med_agents.quickstart:main"
+
+[project.urls]
+Documentation = "https://github.com/saadbinather/SwarmFL#readme"
+Issues = "https://github.com/saadbinather/SwarmFL/issues"
+Repository = "https://github.com/saadbinather/SwarmFL"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
+ignore = ["E731"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["fed_med_agents*"]
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.flwr.app]
+publisher = "local"
+[tool.flwr.app.components]
+serverapp = "fed_med_agents.server_app:app"
+clientapp = "fed_med_agents.client_app:app"
+[tool.flwr.app.config]
+num-server-rounds = 5
