@@ -6,6 +6,7 @@ import copy
 import json
 import os
 from datetime import datetime, timedelta
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -312,9 +313,18 @@ def test_local_trace_contains_no_feature_or_label_values(root):
     assert all(patient.startswith("syn-") for patient in demo.partitions(root)["feedback"])
 
 
-def test_controlled_external_compatibility_and_lifecycle(root):
+def test_historical_cdc_checkpoint_compatibility(root):
+    checkpoints = (
+        Path("artifacts/m5-step07-v1/routers/r000.pt"),
+        Path("artifacts/m5-step07-v1/fusions/f000.pt"),
+    )
+    if not all(checkpoint.exists() for checkpoint in checkpoints):
+        pytest.skip("Optional retained Step 7 policy checkpoints are unavailable")
     rejected = demo.historical_compatibility(root)
     assert set(rejected.values()) <= {"ValueError", "RuntimeError", "RegistryError"}
+
+
+def test_synthetic_external_specialist_lifecycle(root):
     fixture = demo.controlled_lifecycle(root)
     assert fixture["rejection"] == "ValueError"
     assert fixture["recovered"] == {"router": "r000", "fusion": "fApproved"}
