@@ -2,6 +2,16 @@
 
 ## Step 8B release surface
 
+The PyPI release path is a two-job GitHub Actions pipeline triggered only by a
+pushed `v*` tag. The unprivileged build job checks out that tagged commit,
+requires an exact `v<pyproject version>` match, builds one wheel and one sdist,
+runs strict Twine validation, checks the expected filenames, and uploads a
+SHA-named short-lived Actions artifact. The dependent publishing job downloads
+only that artifact from the same workflow run. Only the publishing job has
+`id-token: write`, and it is bound to the protected `pypi` environment before
+`pypa/gh-action-pypi-publish@release/v1` exchanges GitHub OIDC identity with PyPI.
+There is no branch, pull-request, or manual-dispatch publication path.
+
 The distribution is `swarmfl`; imports remain `fed_med_agents`. Root re-exports
 cover registry/session, routing, fusion, feedback, and version APIs. The packaged
 CPU quickstart is a disease-neutral synthetic Flower app with three local NumPy

@@ -65,6 +65,18 @@ uploaded. Supported Python versions are 3.11–3.13. Optional historical researc
 dependencies are available through `.[research]`; Qwen HTTP integration is
 `.[qwen]`; contributor tooling is `.[dev]`.
 
+## Release process
+
+PyPI publication is configured through GitHub OIDC Trusted Publishing. The
+release workflow runs only when an explicit `v*` tag is pushed, requires that the
+tag exactly equals `v` plus the version in `pyproject.toml`, builds and checks a
+wheel and sdist, and publishes those same-run artifacts through the protected
+`pypi` environment. Ordinary branch pushes and pull requests cannot invoke it.
+
+For version `0.1.0a1`, the release tag would be `v0.1.0a1`. Do not create or push
+that tag until the release contents, current CI, and publication decision have
+been explicitly approved. The workflow uses no long-lived PyPI API token.
+
 ## Five-minute CPU quickstart
 
 Run from a directory outside the source checkout:

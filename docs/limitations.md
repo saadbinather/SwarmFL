@@ -2,6 +2,14 @@
 
 ## Step 8B release-candidate limitations
 
+- The Trusted Publishing workflow can be structurally and locally validated, but
+  the PyPI OIDC exchange and protected-environment gate cannot be exercised without
+  pushing a real release tag. This setup task deliberately does not do so.
+- A pushed tag that does not exactly equal `v` plus the PEP 621 project version
+  fails before building. PyPI still enforces immutable released versions and the
+  configured pending publisher identity; workflow configuration is not itself a
+  guarantee that publication will succeed.
+
 - A 2026-10-16 lookup found no live `swarmfl` PyPI page, but the name is not
   reserved or guaranteed until authenticated publication.
 - Public Git history begins at `d9c0ab3`; CI portability commit `16dc61f` is on

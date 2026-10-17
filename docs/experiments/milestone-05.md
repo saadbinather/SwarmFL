@@ -61,3 +61,18 @@ without private artifacts passed the Step 8A suite with 16 tests and 2 expected
 skips. GitHub Actions run `39011169984` then passed both `test-and-build` and
 `dependency-audit`, including package build, Twine validation, fresh-wheel install,
 quickstart, and external-adapter smoke tests.
+
+## PyPI Trusted Publishing preparation
+
+Release automation preparation adds no research behavior or evidence. The new
+workflow is triggered only by an explicitly pushed `v*` tag. Its unprivileged
+build job validates that the tag exactly matches the PEP 621 version, creates and
+strictly Twine-checks one wheel and one sdist, and uploads them under the tagged
+commit SHA. A separate publishing job downloads that same-run artifact, is bound
+to GitHub environment `pypi`, and alone receives `id-token: write` for
+`pypa/gh-action-pypi-publish@release/v1`.
+
+No version tag, GitHub Release, PyPI upload, or Hugging Face upload is part of the
+setup. Actual OIDC publication remains a separately approved release action. This
+does not alter the Apache-2.0 license, security disclosures, package/import names,
+historical artifacts, or research findings.

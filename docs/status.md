@@ -1,5 +1,13 @@
 # Current implementation status — 2026-10-16
 
+PyPI Trusted Publishing workflow setup was locally validated on 2026-10-17. The
+release path is tag-only (`v*`), requires an exact tag/project-version match,
+separates build from publish, and confines GitHub OIDC `id-token: write` to the
+protected `pypi` publishing job. YAML/permission invariants, matching and rejected
+tag paths, isolated builds, strict Twine checks, full tests, Ruff, and dependency
+consistency pass. No version tag, GitHub Release, PyPI upload, or Hugging Face
+upload was created or performed.
+
 Public Linux CI is now passing for commit `16dc61f`. GitHub Actions run
 `39011169984` completed both `test-and-build` and `dependency-audit` successfully.
 The portability fix split Step 8A's historical CDC checkpoint compatibility check

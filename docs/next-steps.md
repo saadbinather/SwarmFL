@@ -2,9 +2,12 @@
 
 ## Release blockers after Step 8C
 
-1. Configure PyPI trusted publishing and confirm/reserve the `swarmfl` project name.
-2. Publish the already validated `swarmfl` 0.1.0a1 archives only with explicit
-   publication authorization; do not upload private research evidence.
+1. Review the Trusted Publishing workflow and obtain explicit approval for the
+   actual `v0.1.0a1` release.
+2. Only after approval, create and push the annotated `v0.1.0a1` tag from the
+   reviewed commit, supervise the protected `pypi` deployment, and verify the
+   published project and clean-environment installation. Do not upload private
+   research evidence.
 3. Track a Flower release compatible with patched Ray; the owner accepts the
    current trusted-local alpha risk and no untrusted Ray Data input is supported.
 4. Publish synthetic Hugging Face assets only if useful and separately authorized.
