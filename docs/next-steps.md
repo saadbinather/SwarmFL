@@ -2,14 +2,17 @@
 
 ## Release blockers after Step 8C
 
-1. Review and approve the regenerated staged first-commit manifest and diff; do
-   not commit ignored research evidence.
-2. Obtain actual GitHub-hosted Linux CI evidence after the first authorized push.
+1. Configure PyPI trusted publishing and confirm/reserve the `swarmfl` project name.
+2. Publish the already validated `swarmfl` 0.1.0a1 archives only with explicit
+   publication authorization; do not upload private research evidence.
 3. Track a Flower release compatible with patched Ray; the owner accepts the
    current trusted-local alpha risk and no untrusted Ray Data input is supported.
-4. Confirm/reserve `swarmfl` on PyPI and configure trusted publishing.
-5. Publish GitHub/PyPI first; publish synthetic Hugging Face assets only if useful.
-6. Plan any Flower launcher migration separately and preserve historical evidence.
+4. Publish synthetic Hugging Face assets only if useful and separately authorized.
+5. Plan any Flower launcher migration separately and preserve historical evidence.
+
+Completed release gates: the first public commit and narrow CI portability fix are
+on `origin/main`; GitHub Actions run `39011169984` passed `test-and-build` and
+`dependency-audit` on Ubuntu.
 
 ## Completed Step 8C conditions
 

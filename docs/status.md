@@ -1,13 +1,26 @@
 # Current implementation status — 2026-10-16
 
+Public Linux CI is now passing for commit `16dc61f`. GitHub Actions run
+`39011169984` completed both `test-and-build` and `dependency-audit` successfully.
+The portability fix split Step 8A's historical CDC checkpoint compatibility check
+from its synthetic specialist lifecycle check: clean public checkouts explicitly
+skip only the optional historical check, while rejection, approval, restart
+recovery, and exact rollback remain mandatory synthetic coverage. No framework
+core, private artifact, research result, or package behavior changed.
+
+Local validation was **197 passed, 4 skipped**; Ruff lint/format and `pip check`
+passed. A clean tracked-files checkout without private checkpoints ran the Step 8A
+suite with **16 passed, 2 skipped** (the optional historical check and pre-existing
+opt-in real Flower replay). Commit `16dc61f` contains only the test correction.
+The distribution remains prepared as `swarmfl` 0.1.0a1 but is not published.
+
 M5 **Step 8C finalization and research organization is locally complete**.
 Apache-2.0 is owner-approved with complete license text and PEP 639 metadata. The
 public research index and verified-results summary are intentional additions to
 the approved allowlist. Canonical metadata
-now targets `https://github.com/saadbinather/SwarmFL`. Local Git is initialized on
-`main` with that `origin`; no commit has been created, pushed, uploaded, or
-published. The audited proposed first commit has 139 allowlisted files (the approved
-137 paths plus the two reviewed `research/` documents) and excludes
+targets `https://github.com/saadbinather/SwarmFL`. The audited 139-file initial
+commit (the approved 137 paths plus the two reviewed `research/` documents) is
+published on `main` and excludes
 artifacts, environments, distributions, datasets, checkpoints, secrets, caches,
 local paths, and generated outputs.
 
@@ -20,8 +33,9 @@ use only; an upstream fix remains preferred. Full regression:
 isolated Python 3.12 wheel install outside the repository completed the real
 three-client Flower quickstart, signed feedback, rollback, and external adapter.
 
-No bundled third-party code restriction was found. GitHub-hosted Linux CI has not
-run. Exact evidence is in the Step 8C devlog and ignored execution artifact.
+No bundled third-party code restriction was found. GitHub-hosted Linux CI passed
+after the narrow private-checkpoint test portability correction described above.
+Exact Step 8C evidence remains in its devlog and ignored execution artifact.
 
 M5 **Step 8B local release preparation is complete with a CONDITIONAL GO**.
 Distribution `swarmfl` 0.1.0a1 preserves the `fed_med_agents` import package.

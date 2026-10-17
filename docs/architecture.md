@@ -51,6 +51,12 @@ CDC shared checkpoints are loaded through their explicit metadata and rejected
 when paired with synthetic identities. No CDC private or frozen-test data enters
 this workflow, and no framework core source changed in Step 8A.
 
+Public CI treats those retained Step 7 shared checkpoints as optional historical
+evidence. Their compatibility test runs with all original assertions when both
+checkpoint files are present and skips explicitly otherwise. The disease-neutral
+synthetic lifecycle test is independent and always exercises rejection, approval,
+restart recovery, and exact rollback in public CI.
+
 
 ## M5 Step 7: continual orchestration and compatible pair activation
 

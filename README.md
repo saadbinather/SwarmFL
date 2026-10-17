@@ -82,7 +82,8 @@ The synthetic task has no clinical meaning.
 
 Flower warns that its Python `run_simulation` launcher is deprecated. SwarmFL pins
 the tested Flower 1.40.0 path while a CLI migration remains separate work. Ray on
-Windows is experimental; Ubuntu GitHub Actions is configured but has not run.
+Windows is experimental. Ubuntu GitHub Actions passed tests, build, Twine checks,
+and installed-wheel smoke validation on 2026-10-16.
 
 ## Custom specialist integration
 

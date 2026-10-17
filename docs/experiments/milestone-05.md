@@ -33,7 +33,7 @@ Exact commands, hashes, failures, and limitations are in the dated Step 8B devlo
 
 Release metadata now points to the canonical GitHub repository, local Git is
 initialized on `main` with the correct `origin`, and an explicit 137-file public
-manifest is audited but unstaged. Flower 1.40.0 upgrades cryptography to 50.0.2;
+manifest was audited before the initial public commit. Flower 1.40.0 upgrades cryptography to 50.0.2;
 isolated builds use setuptools 84. The remaining audit finding is Flower-pinned
 Ray 2.55.1/PYSEC-2026-2273 in `ray.data.read_webdataset`, which SwarmFL does not
 call or expose. This is documented residual package risk, not a claimed fix.
@@ -41,5 +41,23 @@ call or expose. This is documented residual package risk, not a claimed fix.
 The rebuilt wheel passes a fully isolated Python 3.12 install and genuine
 three-client CPU Flower quickstart outside the repository. Regression remains
 196 passed/4 skipped. Apache-2.0 and PEP 639 metadata remain pending explicit
-ownership confirmation, and actual GitHub-hosted Linux CI remains unverified.
+ownership confirmation in this historical Step 8C snapshot; both were later
+owner-approved, and GitHub-hosted Linux CI is verified in the correction below.
 No research model or CDC experiment was opened or rerun.
+
+## Public CI portability correction
+
+The first public run (`38942442915`) exposed one test portability defect: a combined
+Step 8A test required private, Git-ignored Step 7 router/fusion checkpoints before
+it could reach the independent synthetic lifecycle fixture. Commit `16dc61f` split
+those responsibilities. Historical CDC shared-checkpoint compatibility retains its
+assertions when both checkpoints exist and skips explicitly in clean checkouts;
+synthetic rejection, approval, restart recovery, and exact rollback remain
+unconditional.
+
+No framework core or research artifact changed, and the frozen CDC test was not
+accessed. Local QA passed with 197 tests and 4 skips; a clean tracked-files checkout
+without private artifacts passed the Step 8A suite with 16 tests and 2 expected
+skips. GitHub Actions run `39011169984` then passed both `test-and-build` and
+`dependency-audit`, including package build, Twine validation, fresh-wheel install,
+quickstart, and external-adapter smoke tests.

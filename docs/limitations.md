@@ -4,12 +4,15 @@
 
 - A 2026-10-16 lookup found no live `swarmfl` PyPI page, but the name is not
   reserved or guaranteed until authenticated publication.
-- Git history begins with the local Step 8C initialization; no commit exists yet.
+- Public Git history begins at `d9c0ab3`; CI portability commit `16dc61f` is on
+  `main`, and GitHub Actions run `39011169984` passed on Ubuntu.
 - Apache-2.0 is approved by the owner and installed with complete text and PEP 639
   metadata. Canonical repository URLs target
   `https://github.com/saadbinather/SwarmFL`; no maintainer identity is inferred.
 - The Hugging Face card covers generated synthetic adapters, not a clinical checkpoint.
-- Python 3.11 is locally testable; 3.12/3.13 remain CI targets.
+- Python 3.11 passes local and Ubuntu CI validation. The isolated Python 3.12
+  wheel validation remains recorded locally; Python 3.13 remains a supported but
+  not yet CI-matrix-validated target.
 - Flower 1.40.0 is pinned for release packaging; historical reports retain the
   Flower versions actually used for their runs.
 - Flower's simulation extra pins Ray 2.55.1, affected by PYSEC-2026-2273. The
@@ -25,6 +28,10 @@
 - Authorization, signatures, opaque IDs, selected-only messages, and minimized logs
   are not privacy proofs; disclosures through predictions, IDs, timing, metadata,
   logs, and model updates remain possible.
+- Clean public checkouts cannot rerun the optional historical CDC shared-checkpoint
+  compatibility assertions because those retained checkpoint files are private and
+  Git-ignored. Public CI skips only that check and still runs the synthetic lifecycle
+  coverage. This does not make historical evidence downloadable or reproducible.
 
 Step 8A is a deterministic synthetic engineering validation, not clinical or
 external predictive validation. Its 30-day event horizon is simulated; cases are
