@@ -1,5 +1,5 @@
  <div align="center">
-  <img src="resources/swarmfl-logo.png" alt="SwarmFL" width="600">
+  <img src="resources/swarmfl-logo-transparent.png" alt="SwarmFL" width="600">
 </div>
 
 [![CI](https://github.com/saadbinather/SwarmFL/actions/workflows/ci.yml/badge.svg)](https://github.com/saadbinather/SwarmFL/actions/workflows/ci.yml)
