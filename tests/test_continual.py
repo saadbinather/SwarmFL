@@ -6,7 +6,6 @@ import copy
 
 import pytest
 import torch
-from test_registry import registry, reply, session, specialist
 
 from fed_med_agents.feedback.continual import ContinualController
 from fed_med_agents.feedback.events import FeedbackLedger, VerifiedOutcome, digest, sign
@@ -14,6 +13,7 @@ from fed_med_agents.feedback.learning import fusion_feedback_update
 from fed_med_agents.feedback.versions import PolicyPair, PolicyRegistry
 from fed_med_agents.fusion.dynamic import DynamicFusion
 from fed_med_agents.routing.policy import RoutingPolicy
+from tests.test_registry import registry, reply, session, specialist
 
 KEYS = ("ab" * 32, "cd" * 32)
 

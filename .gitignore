@@ -51,3 +51,18 @@ research/runs/
 research/artifacts/
 research/checkpoints/
 research/logs/
+
+# Local-only repository and experiment tooling
+/AGENTS.md
+/scripts/
+/internal/
+
+# Additional generated experiment outputs and model containers
+/wandb/
+/mlruns/
+/runs/
+/ray_results/
+/.ipynb_checkpoints/
+*.safetensors
+*.h5
+*.hdf5

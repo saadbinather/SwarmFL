@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "swarmfl"
-version = "0.1.0a1"
+version = "0.1.0"
 description = "Federated multi-agent research framework for authorized specialist consultation"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
@@ -55,6 +55,7 @@ ignore = ["E731"]
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["fed_med_agents*"]
+exclude = ["fed_med_agents.experiments*"]
 
 [tool.setuptools]
 include-package-data = false

@@ -76,3 +76,24 @@ No version tag, GitHub Release, PyPI upload, or Hugging Face upload is part of t
 setup. Actual OIDC publication remains a separately approved release action. This
 does not alter the Apache-2.0 license, security disclosures, package/import names,
 historical artifacts, or research findings.
+
+## Public alpha and stable-release preparation
+
+After explicit approval, annotated tag `v0.1.0a1` published the alpha through
+successful GitHub Actions run `39015427081`. PyPI exposed both wheel and sdist; a
+new public-index environment passed import/version checks, dependency consistency,
+and the three-client CPU quickstart. No GitHub Release or Hugging Face upload was
+created.
+
+The subsequent `0.1.0` preparation starts from that same latest verified code. It
+changes release metadata and public documentation, not algorithms, data handling,
+Flower communication, or scientific results. Historical alpha measurements and
+artifact paths remain labeled as such. Stable publication requires a new reviewed
+commit and separate owner approval for tag `v0.1.0`.
+
+Stable packaging also separates the reusable installed library from repository-only
+research machinery. Wheels and sdists omit `fed_med_agents.experiments`, internal
+scripts, tests, devlogs, private evidence, and generated artifacts. The experiment
+sources and tests remain in the research checkout, and Step 8A's synthetic helper
+remains testable under `tests/support/`; this is packaging cleanup, not removal of
+historical evidence or a behavioral change.

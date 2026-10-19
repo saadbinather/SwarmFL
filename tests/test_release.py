@@ -10,7 +10,7 @@ from fed_med_agents.quickstart import IDS, feedback_smoke, prepare, versioning_s
 
 
 def test_public_release_imports() -> None:
-    assert fed_med_agents.__version__ == "0.1.0a1"
+    assert fed_med_agents.__version__ == "0.1.0"
     assert all(
         value is not None for value in (SpecialistRegistry, ConsultationSession, RoutingPolicy, DynamicFusion)
     )

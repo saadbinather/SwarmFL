@@ -12,7 +12,7 @@ import numpy as np
 import pytest
 import torch
 
-from scripts import validate_step08a as demo
+from tests.support import validate_step08a as demo
 
 
 @pytest.fixture(scope="module")

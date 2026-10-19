@@ -4,8 +4,13 @@ recursive-include examples *.py *.json *.md
 recursive-include research *.md
 prune docs/devlog
 prune docs/experiments
+prune src/fed_med_agents/experiments
+prune scripts
+prune tests
 include docs/architecture.md docs/feedback-learning.md docs/limitations.md
 include docs/next-steps.md docs/status.md docs/experiments/milestone-05.md
 prune artifacts
 prune .github
-global-exclude *.py[cod] __pycache__ *.pt *.pth *.ckpt *.joblib *.npz *.npy
+global-exclude *.py[cod] __pycache__ *.pt *.pth *.ckpt *.onnx *.joblib *.pkl *.pickle
+global-exclude *.parquet *.feather *.npy *.npz *.sqlite *.sqlite3 *.safetensors *.h5 *.hdf5
+global-exclude *.pem *.key *.p12 *.pfx *.crt *.cer *.log .env

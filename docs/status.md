@@ -1,12 +1,32 @@
-# Current implementation status — 2026-10-16
+# Current implementation status — 2026-10-17
+
+Stable release preparation for `swarmfl` **0.1.0** began from verified `main` at
+`6c9fa38` on 2026-10-17. The only executable-source change is the public package
+version in `fed_med_agents.__init__`; routing, fusion, federation, consultation,
+registry, feedback, versioning, quickstart, and research algorithms are unchanged.
+The concise README/research navigation and release metadata are being updated for
+review. Version `0.1.0` is not tagged or published.
+
+The stable package cleanup keeps repository research implementations and tests
+available locally while excluding `fed_med_agents.experiments`, internal scripts,
+tests, devlogs, private data/checkpoints, and generated artifacts from wheel and
+sdist contents. Step 8A synthetic validation support moved from `scripts/` to
+`tests/support/` without weakening its assertions or CLI. CI now audits both
+archives before installed-wheel smoke validation.
+
+The first public alpha, `swarmfl` 0.1.0a1, was published successfully from
+annotated tag `v0.1.0a1` at `6c9fa38` through GitHub OIDC Trusted Publishing.
+Release workflow run `39015427081` passed both build and publish jobs. A clean
+public-PyPI install reported version `0.1.0a1`, passed `pip check`, and completed
+the three-client CPU quickstart with signed feedback and rollback.
 
 PyPI Trusted Publishing workflow setup was locally validated on 2026-10-17. The
 release path is tag-only (`v*`), requires an exact tag/project-version match,
 separates build from publish, and confines GitHub OIDC `id-token: write` to the
 protected `pypi` publishing job. YAML/permission invariants, matching and rejected
 tag paths, isolated builds, strict Twine checks, full tests, Ruff, and dependency
-consistency pass. No version tag, GitHub Release, PyPI upload, or Hugging Face
-upload was created or performed.
+consistency passed before the alpha release. No GitHub Release or Hugging Face
+upload was created.
 
 Public Linux CI is now passing for commit `16dc61f`. GitHub Actions run
 `39011169984` completed both `test-and-build` and `dependency-audit` successfully.
@@ -20,7 +40,9 @@ Local validation was **197 passed, 4 skipped**; Ruff lint/format and `pip check`
 passed. A clean tracked-files checkout without private checkpoints ran the Step 8A
 suite with **16 passed, 2 skipped** (the optional historical check and pre-existing
 opt-in real Flower replay). Commit `16dc61f` contains only the test correction.
-The distribution remains prepared as `swarmfl` 0.1.0a1 but is not published.
+At that point, the distribution was prepared as `swarmfl` 0.1.0a1 but had not yet
+been published; its subsequent publication is recorded above. Stable `0.1.0`
+remains unreleased.
 
 M5 **Step 8C finalization and research organization is locally complete**.
 Apache-2.0 is owner-approved with complete license text and PEP 639 metadata. The

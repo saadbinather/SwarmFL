@@ -2,6 +2,10 @@
 
 ## Step 8B release surface
 
+Stable `0.1.0` preparation preserves the `src/fed_med_agents` package and every
+runtime component. Release promotion changes package/version metadata and public
+documentation only; it does not change collaboration protocols or model behavior.
+
 The PyPI release path is a two-job GitHub Actions pipeline triggered only by a
 pushed `v*` tag. The unprivileged build job checks out that tagged commit,
 requires an exact `v<pyproject version>` match, builds one wheel and one sdist,
@@ -30,7 +34,7 @@ The existing architecture is validated end to end without a new core abstraction
 private specialist -> SpecialistRegistry/ConsultationSession -> RoutingPolicy ->
 selected Flower query -> DynamicFusion -> signed PredictionEvent/VerifiedOutcome
 -> ContinualController -> compatible router/fusion FedAvg -> PolicyPair gates and
-atomic activation/rollback. `scripts/validate_step08a.py` is deliberately outside
+atomic activation/rollback. `tests/support/validate_step08a.py` is deliberately outside
 the package and acts as an external developer integration.
 
 Three independently fitted sklearn checkpoints expose explicit task, output,

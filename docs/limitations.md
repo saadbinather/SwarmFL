@@ -2,6 +2,16 @@
 
 ## Step 8B release-candidate limitations
 
+- Version `0.1.0` is prepared but not yet tagged or published. Until publication,
+  unpinned `pip install swarmfl` resolves to the public `0.1.0a1` alpha.
+- Stable promotion does not add clinical validation, a privacy proof, secure
+  multi-hospital transport, or new predictive evidence. It retains the same
+  trusted-local security and scientific boundaries as the alpha.
+- PyPI distributions intentionally omit repository-only experiment runners,
+  `fed_med_agents.experiments`, tests, devlogs, private evidence, and generated
+  artifacts. Historical experiment commands therefore require a source checkout
+  and separately obtained authorized data/checkpoints; the installed library
+  supports the reusable framework and synthetic quickstart.
 - The Trusted Publishing workflow can be structurally and locally validated, but
   the PyPI OIDC exchange and protected-environment gate cannot be exercised without
   pushing a real release tag. This setup task deliberately does not do so.
@@ -10,8 +20,8 @@
   configured pending publisher identity; workflow configuration is not itself a
   guarantee that publication will succeed.
 
-- A 2026-10-16 lookup found no live `swarmfl` PyPI page, but the name is not
-  reserved or guaranteed until authenticated publication.
+- The `swarmfl` project now exists on PyPI with public alpha `0.1.0a1`; PyPI
+  release versions are immutable.
 - Public Git history begins at `d9c0ab3`; CI portability commit `16dc61f` is on
   `main`, and GitHub Actions run `39011169984` passed on Ubuntu.
 - Apache-2.0 is approved by the owner and installed with complete text and PEP 639

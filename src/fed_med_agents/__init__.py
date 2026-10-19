@@ -17,7 +17,7 @@ from .feedback.versions import PolicyPair, PolicyRegistry
 from .fusion.dynamic import DynamicFusion, FusionEvidence
 from .routing.policy import RoutingDecision, RoutingPolicy
 
-__version__ = "0.1.0a1"
+__version__ = "0.1.0"
 
 __all__ = [
     "ConsultationSession",

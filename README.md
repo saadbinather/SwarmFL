@@ -1,180 +1,108 @@
 # SwarmFL
 
-SwarmFL is an experimental federated multi-agent learning research framework for
-specialist registration, selected-only Flower consultations, cost-aware routing,
-dynamic fusion, signed delayed feedback, and version-controlled federated updates.
+SwarmFL is a Python research framework for federated specialist systems. It
+provides typed specialist registration, cost-aware routing, selected-only Flower
+consultations, dynamic prediction fusion, signed delayed feedback, federated
+router and fusion updates, and versioned activation and rollback.
 
-> **Alpha research software:** SwarmFL is not a medical device, clinical decision
-> system, privacy guarantee, or secure multi-hospital deployment.
+## Badges
 
-Distribution: `swarmfl` · Python package: `fed_med_agents` · Version: `0.1.0a1`
+[![CI](https://github.com/saadbinather/SwarmFL/actions/workflows/ci.yml/badge.svg)](https://github.com/saadbinather/SwarmFL/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/pypi/pyversions/swarmfl.svg)](https://pypi.org/project/swarmfl/)
+[![PyPI](https://img.shields.io/pypi/v/swarmfl.svg)](https://pypi.org/project/swarmfl/)
 
-## Architecture overview
+The PyPI badge shows the currently published release. Version `0.1.0` is prepared
+in this repository but remains unreleased until its release tag is approved and
+published.
 
-```text
-origin specialist
-      │
-      ├─ registry + authorization + availability/cost contracts
-      ├─ router ──> STOP
-      │       └──> one selected peer ── Flower request/reply
-      ├─ dynamic fusion of actually observed predictions
-      └─ signed prediction ── delayed verified outcome
-                              └─ shared router/fusion update
-                                  └─ validate → activate/reject → rollback
-```
+## Features
 
-Private specialists retain their own preprocessing and checkpoints. Consultations
-do not send private training rows or specialist weights. Shared Flower updates
-optimize compatible router/fusion parameters, not private specialist models.
-Logical registry membership is distinct from physical Flower federation membership.
-Read the full [technical architecture](docs/architecture.md).
-
-## Key capabilities
-
-- Typed external specialist declarations and compatibility checks.
-- Logical registration, availability, authorization, and consultation budgets.
-- Fixed, contextual MLP, and graph-inspired cost-aware routing.
-- Genuine selected-only Flower communication with STOP support.
-- Dynamic mean, reliability-weighted, and DeepSets fusion.
-- Signed prediction/outcome separation and delayed verified feedback.
-- Federated shared-parameter optimization with immutable versions and rollback.
-- CPU-only synthetic onboarding without CDC data, GPU, Ollama, or private weights.
+- Register heterogeneous specialists with explicit task, output, feature,
+  checkpoint, capability, availability, authorization, and cost contracts.
+- Route each request to STOP or at most one eligible peer using fixed,
+  contextual MLP, or graph-inspired policies.
+- Exchange only selected consultation requests through genuine Flower messages.
+- Fuse changing evidence sets with mean, reliability-weighted, or
+  permutation-invariant DeepSets fusion.
+- Separate signed predictions from delayed, authenticated outcomes.
+- Federate compatible shared router and fusion parameters without transmitting
+  private specialist weights or training rows.
+- Validate, activate, recover, and exactly roll back immutable policy versions.
+- Run a self-contained three-client CPU demonstration with synthetic data.
 
 ## Installation
 
-From a source checkout:
+Install the public package:
 
 ```bash
-python -m pip install .
+pip install swarmfl
 ```
 
-From a built wheel:
+Until `0.1.0` is published, this command installs the latest public version shown
+by the PyPI badge. To work from the current source:
 
 ```bash
-python -m pip install dist/swarmfl-0.1.0a1-py3-none-any.whl
+git clone https://github.com/saadbinather/SwarmFL.git
+cd SwarmFL
+pip install -e .
 ```
 
-After the package is actually published to PyPI, installation will be:
+SwarmFL supports Python 3.11–3.13. Research and contributor dependencies are
+available through the `research`, `qwen`, and `dev` optional dependency groups.
 
-```bash
-python -m pip install swarmfl
-```
+## Quickstart
 
-The PyPI command is a post-publication instruction; `swarmfl` has not yet been
-uploaded. Supported Python versions are 3.11–3.13. Optional historical research
-dependencies are available through `.[research]`; Qwen HTTP integration is
-`.[qwen]`; contributor tooling is `.[dev]`.
-
-## Release process
-
-PyPI publication is configured through GitHub OIDC Trusted Publishing. The
-release workflow runs only when an explicit `v*` tag is pushed, requires that the
-tag exactly equals `v` plus the version in `pyproject.toml`, builds and checks a
-wheel and sdist, and publishes those same-run artifacts through the protected
-`pypi` environment. Ordinary branch pushes and pull requests cannot invoke it.
-
-For version `0.1.0a1`, the release tag would be `v0.1.0a1`. Do not create or push
-that tag until the release contents, current CI, and publication decision have
-been explicitly approved. The workflow uses no long-lived PyPI API token.
-
-## Five-minute CPU quickstart
-
-Run from a directory outside the source checkout:
+Run the verified synthetic demonstration from an isolated working directory:
 
 ```bash
 swarmfl-quickstart --output demo --feedback
 ```
 
-The command generates synthetic records, creates three independent NumPy
-specialists, starts three real CPU Flower clients, registers their contracts,
-selects at most one peer per case, transfers only authorized synthetic fields,
-fuses observed predictions, verifies one signed delayed outcome, activates a
-candidate version, and rolls back. Results are written to `demo/result.json`.
-The synthetic task has no clinical meaning.
+The command starts three CPU Flower clients, registers independent synthetic
+specialists, performs selected-only consultations, fuses predictions, verifies a
+signed delayed outcome, activates a candidate version, and rolls back. Inspect
+`demo/result.json` for node identifiers, routing decisions, predictions, feedback,
+and version transitions. The generated task has no clinical meaning.
 
-Flower warns that its Python `run_simulation` launcher is deprecated. SwarmFL pins
-the tested Flower 1.40.0 path while a CLI migration remains separate work. Ray on
-Windows is experimental. Ubuntu GitHub Actions passed tests, build, Twine checks,
-and installed-wheel smoke validation on 2026-10-16.
-
-## Custom specialist integration
-
-```python
-from fed_med_agents import SpecialistRegistry
-from fed_med_agents.collaboration.registry import Specialist
-
-registry = SpecialistRegistry()
-specialist: Specialist = build_your_declaration()  # application-defined
-registry.register(specialist)
-```
-
-A declaration binds task, output, feature, adapter, checkpoint, capability, cost,
-and availability metadata. Registration does **not** physically join Flower. The
-application must separately run a compatible `ClientApp`, discover its node ID,
-and bind that transport identity.
-
-See [`examples/custom_specialist.py`](examples/custom_specialist.py) for a complete
-declaration and [`fed_med_agents.quickstart`](src/fed_med_agents/quickstart.py) for
-an end-to-end synthetic transport implementation.
-
-## Research results
-
-The consolidated [verified results](research/results.md) report covers CDC diabetes
-development research, routing and fusion comparisons, continual feedback cycles,
-Step 8A external specialists, and installed-wheel validation. The
-[research index](research/README.md) explains what is public and what remains
-intentionally private.
-
-Key findings remain narrow. At 160,000 CDC development routing records,
-fixed/MLP/graph objectives were 0.350173/0.350110/0.350173, while MLP utility R²
-was 0.000003; learned-routing superiority was not established. Dynamic fusion
-results are promising development diagnostics, not matched-protocol clinical
-evidence. Sequential validation populations differ and do not demonstrate
-sustained continual improvement.
+To integrate an application-owned model, declare its contract and keep execution
+behind your adapter. Registration does not load a checkpoint or dynamically add a
+physical Flower client. See the
+[complete custom-specialist example](examples/custom_specialist.py).
 
 ## Documentation
 
-| Resource | Purpose |
-|---|---|
-| [Architecture](docs/architecture.md) | Technical components, contracts, and data flow |
-| [Limitations](docs/limitations.md) | Scientific, privacy, security, and operational boundaries |
-| [Feedback learning](docs/feedback-learning.md) | Delayed-outcome and shared-update semantics |
-| [Current status](docs/status.md) | Verified milestone and release state |
-| [Research index](research/README.md) | Public research organization and evidence policy |
-| [Verified results](research/results.md) | Numerical findings and provenance |
-| [Milestone reports](docs/experiments/) | Detailed historical methodology |
-| [Contributing](CONTRIBUTING.md) | Development and evidence requirements |
-| [Security](SECURITY.md) | Reporting route and known boundaries |
+- [Architecture](docs/architecture.md)
+- [Custom specialist example](examples/custom_specialist.py)
+- [Research](research/README.md)
+- [Verified results](research/results.md)
+- [Limitations](docs/limitations.md)
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
 
-Generated artifacts, CDC datasets, private checkpoints, frozen evaluation files,
-Qwen weights, caches, and local run logs are excluded from Git and distributions.
-Historical artifact paths provide provenance, not a promise that private evidence
-is downloadable.
+## Research
 
-## Security and limitations
+Public reports cover CDC diabetes development experiments, routing and fusion
+comparisons, continual federated feedback cycles, and synthetic external-specialist
+validation. Detailed results and provenance are in
+[`research/results.md`](research/results.md). Private datasets, checkpoints,
+frozen evaluation material, and generated artifacts are not distributed.
 
-SwarmFL currently operates as a trusted local simulation. Predictions, identifiers,
-timing, metadata, logs, and shared updates can disclose information. It provides no
-formal differential privacy, secure aggregation, malicious-client resistance,
-transport isolation, HIPAA/GDPR compliance, or confidentiality guarantee.
+Installable distributions contain the reusable framework and public examples,
+not repository-only experiment runners, tests, private evidence, or development
+artifacts. Historical research implementations remain in the source repository.
 
-Flower 1.40.0's simulation extra pins Ray 2.55.1, which has a high-severity unsafe
-deserialization advisory in `ray.data.read_webdataset`. SwarmFL does not use Ray
-Data and accepts no WebDataset/TAR input. The owner accepts this residual dependency
-risk for this trusted-local alpha only. See [SECURITY.md](SECURITY.md).
+The evidence does not establish clinical utility, learned-routing superiority,
+confidentiality, differential privacy, or secure multi-hospital deployment. Read
+the [limitations](docs/limitations.md) before interpreting results.
 
-The frozen CDC test container and ID file have not been opened, loaded, hashed,
-modified, or evaluated in the relevant research sequence. There is no independent
-multi-hospital validation, established clinical utility, general predictive
-superiority, or physical dynamic Flower membership. Read
-[limitations](docs/limitations.md) before interpreting results.
+## Authors / Maintainers
 
-## Citation and license
+SwarmFL is maintained by [Saad Bin Ather](https://github.com/saadbinather).
+Contributions are welcome under the repository's [contribution guidelines](CONTRIBUTING.md).
 
-Citation metadata is provided in [`CITATION.cff`](CITATION.cff). Do not describe an
-unarchived alpha as a peer-reviewed publication or assign it a DOI unless one is
-actually issued.
+## License
 
-SwarmFL is licensed under the [Apache License 2.0](LICENSE). Dependencies, datasets,
-and separately obtained model weights remain subject to their own terms. See
-[`NOTICE`](NOTICE).
+SwarmFL is licensed under the [Apache License 2.0](LICENSE). Dependencies,
+datasets, and separately obtained model weights remain subject to their own terms;
+see [NOTICE](NOTICE).

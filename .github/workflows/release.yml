@@ -41,6 +41,8 @@ jobs:
           python -m pip install "build>=1.2,<2" "twine>=6,<7"
       - name: Build wheel and source distribution
         run: python -m build
+      - name: Audit distribution contents
+        run: python -m tests.support.audit_distribution dist
       - name: Validate distribution files
         run: |
           python -m twine check --strict dist/*

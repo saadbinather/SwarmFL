@@ -1311,7 +1311,7 @@ def main() -> None:
                     sys.executable,
                     "-u",
                     "-m",
-                    "scripts.validate_step08a",
+                    "tests.support.validate_step08a",
                     "--worker",
                     "--output",
                     str(args.output.resolve()),
@@ -1337,7 +1337,7 @@ def run_checks(root: Path) -> None:
     """Run full regression without reopening historical runtime experiments."""
     commands = {
         "pytest": [sys.executable, "-m", "pytest", "-q"],
-        "ruff": [sys.executable, "-m", "ruff", "check", "--no-cache", "src", "tests", "scripts"],
+        "ruff": [sys.executable, "-m", "ruff", "check", "--no-cache", "src", "tests", "examples"],
         "format": [
             sys.executable,
             "-m",
@@ -1347,7 +1347,7 @@ def run_checks(root: Path) -> None:
             "--check",
             "src",
             "tests",
-            "scripts",
+            "examples",
         ],
         "dependencies": [sys.executable, "-m", "pip", "check"],
         "freeze": [sys.executable, "-m", "pip", "freeze"],

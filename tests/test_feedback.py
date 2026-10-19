@@ -180,10 +180,9 @@ def test_versions_approval_integrity_rollback_capability_registry(tmp_path):
 
 
 def test_slm_tool_reads_latest_approved_version(tmp_path):
-    from test_agents import MockProvider, MockTransport, capabilities, request
-
     from fed_med_agents.agents.coordinator import CoordinationSession
     from fed_med_agents.agents.runtime import ToolAgent
+    from tests.test_agents import MockProvider, MockTransport, capabilities, request
 
     # Real typed dispatch with a deterministic provider only for this unit test.
     registry = PolicyRegistry(tmp_path)

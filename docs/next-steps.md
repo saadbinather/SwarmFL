@@ -2,20 +2,21 @@
 
 ## Release blockers after Step 8C
 
-1. Review the Trusted Publishing workflow and obtain explicit approval for the
-   actual `v0.1.0a1` release.
-2. Only after approval, create and push the annotated `v0.1.0a1` tag from the
-   reviewed commit, supervise the protected `pypi` deployment, and verify the
-   published project and clean-environment installation. Do not upload private
-   research evidence.
-3. Track a Flower release compatible with patched Ray; the owner accepts the
+1. Complete local and GitHub CI validation of the `0.1.0` metadata/documentation
+   and package-surface preparation, including the archive-content gate, and review
+   the exact source-preservation diff.
+2. Obtain explicit owner approval for the actual `v0.1.0` release.
+3. Only after approval, create and push annotated tag `v0.1.0` from the reviewed
+   commit, supervise the protected `pypi` deployment, and verify an unpinned clean
+   installation. Do not upload private research evidence.
+4. Track a Flower release compatible with patched Ray; the owner accepts the
    current trusted-local alpha risk and no untrusted Ray Data input is supported.
-4. Publish synthetic Hugging Face assets only if useful and separately authorized.
-5. Plan any Flower launcher migration separately and preserve historical evidence.
+5. Publish synthetic Hugging Face assets only if useful and separately authorized.
+6. Plan any Flower launcher migration separately and preserve historical evidence.
 
-Completed release gates: the first public commit and narrow CI portability fix are
-on `origin/main`; GitHub Actions run `39011169984` passed `test-and-build` and
-`dependency-audit` on Ubuntu.
+Completed release gates: public alpha `0.1.0a1` is available on PyPI; its OIDC
+build/publish workflow and clean public installation passed. The stable release
+remains deliberately untagged.
 
 ## Completed Step 8C conditions
 

@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use SwarmFL, cite the archived release associated with your experiment."
 title: "SwarmFL: a federated multi-agent research framework"
 type: software
-version: 0.1.0-alpha.1
+version: 0.1.0
 license: Apache-2.0
 authors:
   - name: "SwarmFL contributors"

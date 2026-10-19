@@ -25,6 +25,89 @@ jobs:
       - run: python -m ruff check src tests examples
       - run: python -m ruff format --check src tests examples
       - run: python -m build
+      - name: Audit distribution contents
+        run: |
+          python - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import tarfile
+          import zipfile
+
+          prohibited_prefixes = (
+              "fed_med_agents/experiments/",
+              "src/fed_med_agents/experiments/",
+              "scripts/",
+              "tests/",
+              "docs/devlog/",
+              "artifacts/",
+              "data/",
+              "datasets/",
+              "checkpoints/",
+              "models/",
+              "outputs/",
+              "research/runs/",
+              "research/artifacts/",
+              "research/checkpoints/",
+              "research/logs/",
+          )
+          prohibited_suffixes = (
+              ".pt", ".pth", ".ckpt", ".onnx", ".joblib", ".pkl", ".pickle",
+              ".parquet", ".feather", ".npy", ".npz", ".sqlite", ".sqlite3",
+              ".safetensors", ".h5", ".hdf5", ".pem", ".key", ".p12", ".pfx",
+              ".crt", ".cer", ".log",
+          )
+
+          def normalize(name: str) -> str:
+              parts = PurePosixPath(name).parts
+              if parts and parts[0].startswith("swarmfl-"):
+                  parts = parts[1:]
+              return "/".join(parts)
+
+          def prohibited(name: str) -> bool:
+              path = normalize(name)
+              lowered = path.lower()
+              return (
+                  any(path == prefix.rstrip("/") or path.startswith(prefix) for prefix in prohibited_prefixes)
+                  or lowered.endswith(prohibited_suffixes)
+                  or (
+                      PurePosixPath(path).name == ".env"
+                      or (
+                          PurePosixPath(path).name.startswith(".env.")
+                          and PurePosixPath(path).name != ".env.example"
+                      )
+                  )
+              )
+
+          wheel = next(Path("dist").glob("*.whl"))
+          sdist = next(Path("dist").glob("*.tar.gz"))
+          with zipfile.ZipFile(wheel) as archive:
+              wheel_names = archive.namelist()
+          with tarfile.open(sdist, "r:gz") as archive:
+              sdist_names = archive.getnames()
+
+          for archive, names in ((wheel, wheel_names), (sdist, sdist_names)):
+              rejected = sorted(name for name in names if prohibited(name))
+              if rejected:
+                  raise SystemExit(f"Prohibited content in {archive}: {rejected}")
+
+          normalized_wheel = {normalize(name) for name in wheel_names}
+          normalized_sdist = {normalize(name) for name in sdist_names}
+          required_wheel = {
+              "fed_med_agents/__init__.py",
+              "fed_med_agents/quickstart.py",
+              "fed_med_agents/collaboration/registry.py",
+          }
+          required_sdist = {
+              "pyproject.toml",
+              "README.md",
+              "examples/custom_specialist.py",
+              "research/results.md",
+          }
+          if missing := required_wheel - normalized_wheel:
+              raise SystemExit(f"Required wheel content missing: {sorted(missing)}")
+          if missing := required_sdist - normalized_sdist:
+              raise SystemExit(f"Required sdist content missing: {sorted(missing)}")
+          print(f"Audited {len(wheel_names)} wheel entries and {len(sdist_names)} sdist entries")
+          PY
       - run: python -m twine check dist/*
       - name: Install and exercise wheel in a fresh environment
         run: |

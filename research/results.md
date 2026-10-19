@@ -179,13 +179,12 @@ integration evidence, not predictive generalization evidence. Sources: local
   Data/WebDataset input; the residual dependency risk is documented in
   [`SECURITY.md`](../SECURITY.md).
 
-The supported public reproduction is synthetic:
+The supported public reproduction is synthetic. The unpinned command installs the
+latest version currently published on PyPI:
 
 ```bash
-python -m pip install dist/swarmfl-0.1.0a1-py3-none-any.whl
+python -m pip install swarmfl
 cd /a/directory/outside/the/source/repository
 swarmfl-quickstart --output demo --feedback
 python /path/to/SwarmFL/examples/custom_specialist.py
 ```
-
-After PyPI publication, the first command becomes `python -m pip install swarmfl`.

@@ -7,13 +7,13 @@ import copy
 import numpy as np
 import pytest
 import torch
-from test_registry import registry, session
 
 from fed_med_agents.experiments.cdc_scaling import prefix, split_ids
 from fed_med_agents.feedback.events import PredictionEvent, VerifiedOutcome, digest
 from fed_med_agents.feedback.learning import routing_feedback_loss
 from fed_med_agents.feedback.versions import PolicyRegistry
 from fed_med_agents.routing.policy import RoutingPolicy
+from tests.test_registry import registry, session
 
 
 @pytest.mark.parametrize("kind", ["fixed", "mlp", "graph"])

@@ -7,10 +7,10 @@ import itertools
 
 import pytest
 import torch
-from test_registry import registry, session, specialist
 
 from fed_med_agents.feedback.versions import PolicyRegistry
 from fed_med_agents.fusion.dynamic import DynamicFusion, FusionEvidence
+from tests.test_registry import registry, session, specialist
 
 
 def model(kind):
