@@ -67,9 +67,10 @@ Some datasets, model checkpoints, and internal scripts are intentionally exclude
 
 SwarmFL is research software and is not validated for clinical deployment or formal privacy guarantees.
 
+
 ## Authors
 
-Maintained by [Saad Bin Ather](https://github.com/saadbinather).
+Maintained by [Saad Bin Ather](https://github.com/saadbinather), [Ali Hassan](https://github.com/Alihassan0155), and [Saif](https://github.com/rajasaifr).
 
 ## License
 
