@@ -70,7 +70,7 @@ SwarmFL is research software and is not validated for clinical deployment or for
 
 ## Authors
 
-Maintained by [Saad Bin Ather](https://github.com/saadbinather), [Ali Hassan](https://github.com/Alihassan0155), and [Saif](https://github.com/rajasaifr).
+Maintained by [Saad](https://github.com/saadbinather), [Ali Hassan](https://github.com/Alihassan0155), and [Saif](https://github.com/rajasaifr).
 
 ## License
 
