@@ -26,7 +26,7 @@ Install from PyPI:
 pip install swarmfl
 ```
 
-*Note: SwarmFL v0.1.0 is awaiting publication. Until then, install the released alpha using `pip install --pre swarmfl`.*
+SwarmFL v0.1.0 is available from PyPI.
 
 For source installation:
 
@@ -74,4 +74,4 @@ Maintained by [Saad](https://github.com/saadbinather), [Ali Hassan](https://gith
 
 ## License
 
-Licensed under the [Apache License 2.0](LICENSE). 
+Licensed under the [Apache License 2.0](LICENSE).

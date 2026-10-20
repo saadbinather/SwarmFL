@@ -1,5 +1,13 @@
 # Implemented architecture
 
+## Documentation site
+
+Read the Docs builds the Sphinx site from `docs/` on Ubuntu 24.04 with Python
+3.11. MyST renders the existing Markdown architecture, research, status, and
+limitations sources. Autodoc reads the public `fed_med_agents` exports with
+runtime dependencies mocked; the docs environment does not install the package
+or its Flower, Ray, PyTorch, NumPy, and Pydantic runtime stack.
+
 ## Step 8B release surface
 
 Stable `0.1.0` preparation preserves the `src/fed_med_agents` package and every

@@ -1,22 +1,17 @@
 # Prioritized next implementation tasks
 
-## Release blockers after Step 8C
+## Post-release documentation and maintenance
 
-1. Complete local and GitHub CI validation of the `0.1.0` metadata/documentation
-   and package-surface preparation, including the archive-content gate, and review
-   the exact source-preservation diff.
-2. Obtain explicit owner approval for the actual `v0.1.0` release.
-3. Only after approval, create and push annotated tag `v0.1.0` from the reviewed
-   commit, supervise the protected `pypi` deployment, and verify an unpinned clean
-   installation. Do not upload private research evidence.
-4. Track a Flower release compatible with patched Ray; the owner accepts the
+1. Connect the repository to Read the Docs and verify the hosted build from the
+   committed `.readthedocs.yaml`; keep warnings fatal.
+2. Keep API pages aligned with the deliberately supported root package exports.
+3. Track a Flower release compatible with patched Ray; the owner accepts the
    current trusted-local alpha risk and no untrusted Ray Data input is supported.
-5. Publish synthetic Hugging Face assets only if useful and separately authorized.
-6. Plan any Flower launcher migration separately and preserve historical evidence.
+4. Publish synthetic Hugging Face assets only if useful and separately authorized.
+5. Plan any Flower launcher migration separately and preserve historical evidence.
 
-Completed release gates: public alpha `0.1.0a1` is available on PyPI; its OIDC
-build/publish workflow and clean public installation passed. The stable release
-remains deliberately untagged.
+Completed release gates: stable `0.1.0` and alpha `0.1.0a1` are available on PyPI.
+Their OIDC build/publish workflows passed; `v0.1.0` points to `7a7e437`.
 
 ## Completed Step 8C conditions
 

@@ -10,6 +10,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 build/
+docs/_build/
 dist/
 *.whl
 *.tar.gz

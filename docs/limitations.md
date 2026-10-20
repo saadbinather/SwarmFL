@@ -1,9 +1,10 @@
 # Scientific and implementation limitations
 
-## Step 8B release-candidate limitations
+## Stable release and documentation limitations
 
-- Version `0.1.0` is prepared but not yet tagged or published. Until publication,
-  unpinned `pip install swarmfl` resolves to the public `0.1.0a1` alpha.
+- Version `0.1.0` is published on PyPI. The documentation website does not change
+  its research-software status or provide a deployment, privacy, or clinical
+  assurance.
 - Stable promotion does not add clinical validation, a privacy proof, secure
   multi-hospital transport, or new predictive evidence. It retains the same
   trusted-local security and scientific boundaries as the alpha.
@@ -12,16 +13,16 @@
   artifacts. Historical experiment commands therefore require a source checkout
   and separately obtained authorized data/checkpoints; the installed library
   supports the reusable framework and synthetic quickstart.
-- The Trusted Publishing workflow can be structurally and locally validated, but
-  the PyPI OIDC exchange and protected-environment gate cannot be exercised without
-  pushing a real release tag. This setup task deliberately does not do so.
+- The Read the Docs build mocks runtime dependencies for API extraction. It checks
+  documentation structure and public signatures, but does not execute Flower,
+  Ray, PyTorch, model inference, or the test suite.
 - A pushed tag that does not exactly equal `v` plus the PEP 621 project version
   fails before building. PyPI still enforces immutable released versions and the
   configured pending publisher identity; workflow configuration is not itself a
   guarantee that publication will succeed.
 
-- The `swarmfl` project now exists on PyPI with public alpha `0.1.0a1`; PyPI
-  release versions are immutable.
+- The `swarmfl` project has stable `0.1.0` and earlier alpha `0.1.0a1` on PyPI;
+  PyPI release versions are immutable.
 - Public Git history begins at `d9c0ab3`; CI portability commit `16dc61f` is on
   `main`, and GitHub Actions run `39011169984` passed on Ubuntu.
 - Apache-2.0 is approved by the owner and installed with complete text and PEP 639

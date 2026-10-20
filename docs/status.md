@@ -1,11 +1,15 @@
-# Current implementation status — 2026-10-17
+# Current implementation status — 2026-10-20
 
-Stable release preparation for `swarmfl` **0.1.0** began from verified `main` at
-`6c9fa38` on 2026-10-17. The only executable-source change is the public package
-version in `fed_med_agents.__init__`; routing, fusion, federation, consultation,
-registry, feedback, versioning, quickstart, and research algorithms are unchanged.
-The concise README/research navigation and release metadata are being updated for
-review. Version `0.1.0` is not tagged or published.
+Stable `swarmfl` **0.1.0** was published from annotated tag `v0.1.0` at
+`7a7e437` on 2026-10-20. Publish workflow run `39401803553` passed its build,
+validation, and PyPI Trusted Publishing jobs; PyPI exposes the wheel and sdist
+with provenance. The release did not change routing, fusion, federation,
+consultation, registry, feedback, versioning, quickstart, or research algorithms.
+
+The documentation now has a Sphinx/Read the Docs build using the Read the Docs
+theme and MyST. It reuses the maintained Markdown sources and generates public API
+documentation while mocking runtime dependencies, so docs builds do not install
+Flower, Ray, PyTorch, NumPy, or Pydantic.
 
 The stable package cleanup keeps repository research implementations and tests
 available locally while excluding `fed_med_agents.experiments`, internal scripts,
