@@ -258,7 +258,7 @@ frozen-test evaluation belongs to this architecture step.
 
 Step3.6 tests authorized raw origin-local fields, not every possible representation
 or embedding. Inner-selected clinical routing loses to both cost-aware fixed value
-and the inner-selected metadata control in all3outer folds. Utility RÂ²/stability
+and the inner-selected metadata control in all3outer folds. Utility R²/stability
 gates fail; no robust clinical personalization,50k justification or GAT benefit is
 established. A clinical ridge candidate has a small favorable aggregate comparison,
 but choosing it on outer scores would be post-selection. All candidates remain
@@ -290,7 +290,7 @@ six-versus-three score/time differences are not a controlled causal agent-count
 or speedup estimate, especially because private fits are reused.
 
 All numeric gates remain unchanged: >=3 varying origins now means all three.
-Logistic routing's stable cost-quality gains and utility RÂ² .027â€“.042 do not meet
+Logistic routing's stable cost-quality gains and utility R² .027–.042 do not meet
 the .05 gate. Its absolute quality is worse than the residual-fusion condition;
 improvements can reflect conditional fusion/calibration errors, not better
 clinical peer knowledge. Fixed epochs with nine masks yield fewer optimizer
@@ -315,10 +315,10 @@ complementarity. All use one fixed capacity/schedule, not a claim of optimal mod
 
 Whole-stack utility cross-fitting and grouped calibration prevent known label
 leakage, but teacher/final sample-size/calibration shift and one-outcome noisy BCE
-gains remain. Bigger fits improve private predictors without meeting utility RÂ²/
+gains remain. Bigger fits improve private predictors without meeting utility R²/
 personalization/scale gates. Mean-fusion routing offers some cost-aware STOP savings;
-cost-aware fixed value captures most of that improvement. RÂ² is relative to a
-training-origin/peer-mean null, not an assessment-fitted mean. Utility RÂ² scores
+cost-aware fixed value captures most of that improvement. R² is relative to a
+training-origin/peer-mean null, not an assessment-fitted mean. Utility R² scores
 all potential non-self peers; action/oracle/deployment paths still exclude
 temporarily unavailable specialists. Peer variation under
 random availability is not automatically clinical personalization. Public domain
@@ -410,7 +410,7 @@ test evidence is retained, with no new historical-test metrics or tuning.
 2. This is one patient-aligned feature partition, with training labels at all clients. There are no independent hospitals, no complete vertical-FL protocol, and no external patient alignment mechanism. `case-XXXX` is a row pseudonym and does not establish anonymity.
 3. Specialist columns and model parameters stay separate in runtime communication, but all files are accessible to a local trusted simulator. No filesystem isolation, differential privacy, secure aggregation, formal cryptographic confidentiality, or proven privacy guarantee is implemented. Predictions, IDs, hashes, gradients/model updates, logs, and saved artifacts can disclose information.
 4. Training explores all OOF candidates and sends their probabilities through Flower to each origin's local training cache. This training cost/disclosure is larger than the deployed one-consultation budget. This is a full-information supervised objective, not online learning from selectively observed outcomes.
-5. OOF specialist fitting uses an inner calibration holdout, reducing fold training data. Final specialists train on all training rows and use an OOF-fitted temperature. The distribution shift between fold outcomes and final inference can harm fusion. Calibration is estimated, not guaranteed; confidence is `2|pâˆ’0.5|`, not a validated probability of correctness.
+5. OOF specialist fitting uses an inner calibration holdout, reducing fold training data. Final specialists train on all training rows and use an OOF-fitted temperature. The distribution shift between fold outcomes and final inference can harm fusion. Calibration is estimated, not guaranteed; confidence is `2|p−0.5|`, not a validated probability of correctness.
 6. Edge logits and contextual edge biases are not uniquely identifiable; adjacency alone does not explain decisions. The actual finite action scores and selected actions are reported, without invented natural-language reasons. Enumerating actions is practical for three clients but combinatorial for large networks.
 7. The learned objective uses soft expected action loss; inference uses argmax. That mismatch, local-origin specialization, FedAvg interference, small-data overfitting, and weak fusion can degrade results. Experiments establish functioning training/communications, not superiority. Configuration was frozen before test evaluation; no test-driven tuning is reported.
 8. Learned/random/confidence policies share the same selected fusion checkpoint and maximum budget of one. Confidence routing uses threshold 0.6 and a fixed cyclic destination. Random routing always uses the permitted budget; confidence may abstain. Full-evidence mean/all consultation use two peers and more information. The fixed-mean and fixed-all rows deliberately implement the same predictor via the consultation protocol and therefore are not independent algorithms.

@@ -28,8 +28,10 @@ source_suffix = {
 }
 root_doc = "index"
 # Historical reports intentionally retain links to local-only, ignored devlogs
-# and repository files outside the Sphinx source tree.
-suppress_warnings = ["myst.xref_missing"]
+# and repository files outside the Sphinx source tree. Experiment reports are
+# linked from the Research index but omitted from toctrees to keep navigation
+# compact, so their expected not-included notices are suppressed as well.
+suppress_warnings = ["myst.xref_missing", "toc.not_included"]
 exclude_patterns = [
     "_build",
     "Thumbs.db",
@@ -60,14 +62,14 @@ html_context = {
 }
 html_theme_options = {
     "logo": {
-        "text": "SwarmFL",
+        "text": "",
     },
     "navbar_start": ["navbar-logo"],
     "navbar_center": ["navbar-nav"],
     "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
     "navbar_persistent": ["search-button"],
     "show_nav_level": 1,
-    "navigation_depth": 4,
+    "navigation_depth": 3,
     "collapse_navigation": True,
     "use_edit_page_button": True,
     "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],

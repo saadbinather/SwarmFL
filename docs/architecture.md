@@ -306,7 +306,7 @@ training samples/persists one action before looking up its risk/diagnosis, then
 fits selected-loss IPS regression only. Unselected rewards never enter its loss.
 The four global action heads mask self, giving at most3valid actions/origin.
 
-Separate Flower Apps train compatible63â†’32Tanhâ†’1 shared arrays across3clients.
+Separate Flower Apps train compatible63→32Tanh→1 shared arrays across3clients.
 Origin-local query.route computes actions using its private permitted fields;
 query.consult receives selected aligned IDs and returns actual private numeric
 predictions. No raw feature rows/private classifier weights travel in those
@@ -331,8 +331,8 @@ explicit domain metadata for pre-query design; original six-client defaults rema
 reproducible. Service schedules map old origin/candidate slots, preserving public
 coverage and prices for the retained specialists. Numeric gate thresholds remain
 unchanged, including the requirement that at least three origins vary peers.
-Three-agent dimensions: base12/enriched37, fusion original12â†’24â†’1/logistic6â†’1,
-graph3Ã—3 plus11â†’16â†’4 context, numeric value MLP37â†’32â†’1 for Flower.
+Three-agent dimensions: base12/enriched37, fusion original12→24→1/logistic6→1,
+graph3×3 plus11→16→4 context, numeric value MLP37→32→1 for Flower.
 
 `cdc_flower` recognizes only the historical-six and explicit amended-three CDC
 profiles. Current default output is three-agent; actual num_supernodes/minimum
@@ -485,11 +485,11 @@ flowchart LR
 
 ## Learned components
 
-`routing.ContextualRouter`: trainable NÃ—N directed edge logits (initially zero), masked self-edges, contextual MLP `(3N+2)â†’16â†’(N+1)`, and enumerated consultation subsets of size 0 through budget. Inputs are origin identity, origin calibrated probability, `2|pâˆ’0.5|`, public feature-domain flags, and candidate availability. Candidate probabilities/features and patient labels are absent from its inference API. Origin self-actions and unavailable domains/nodes receive âˆ’âˆž scores. The empty action has its own contextual score. The saved adjacency is off-diagonal softmax of edge logits; it is a learned prior, not the full contextual routing policy.
+`routing.ContextualRouter`: trainable N×N directed edge logits (initially zero), masked self-edges, contextual MLP `(3N+2)→16→(N+1)`, and enumerated consultation subsets of size 0 through budget. Inputs are origin identity, origin calibrated probability, `2|p−0.5|`, public feature-domain flags, and candidate availability. Candidate probabilities/features and patient labels are absent from its inference API. Origin self-actions and unavailable domains/nodes receive −∞ scores. The empty action has its own contextual score. The saved adjacency is off-diagonal softmax of edge logits; it is a learned prior, not the full contextual routing policy.
 
-`fusion.PredictionFusion`: inputs are masked probability logits, probability-derived confidence, evidence mask, and origin one-hot identity. MLP `4Nâ†’24â†’1` adds a residual origin logit. Missing values become neutral logits and zero confidence using `torch.where`, so unconsulted values (including NaN) do not affect output. Output is a logit; sigmoid gives the final probability.
+`fusion.PredictionFusion`: inputs are masked probability logits, probability-derived confidence, evidence mask, and origin one-hot identity. MLP `4N→24→1` adds a residual origin logit. Missing values become neutral logits and zero confidence using `torch.where`, so unconsulted values (including NaN) do not affect output. Output is a logit; sigmoid gives the final probability.
 
-`fusion.CollaborativeModel.expected_loss`: sums binary cross-entropy plus configurable costÃ—number-of-consultations over all admissible actions, weighted by router softmax. Both models receive genuine gradients. This full-information, differentiable training objective uses offline OOF consultation outcomes; it is not reinforcement learning or a sampled on-policy estimator. Inference chooses the maximum-score action before obtaining peer evidence.
+`fusion.CollaborativeModel.expected_loss`: sums binary cross-entropy plus configurable cost×number-of-consultations over all admissible actions, weighted by router softmax. Both models receive genuine gradients. This full-information, differentiable training objective uses offline OOF consultation outcomes; it is not reinforcement learning or a sampled on-policy estimator. Inference chooses the maximum-score action before obtaining peer evidence.
 
 ## No-stacking-leakage preparation
 
@@ -530,7 +530,7 @@ Device selection supports auto/cuda/cpu. GPU Ray configuration advertises one GP
 
 Public M2 APIs: `select_device`, `ContextualRouter.select`, `PredictionFusion.forward`, `CollaborativeModel.expected_loss`, `ConsultationBroker.predict`, `policy_predictions`, and `evaluation.verify.verify`. Load `shared_best.pt` with `weights_only=True` into a `CollaborativeModel` with matching client count/budget. The original M2 workflow still uses aligned records. M3 below adds a new-patient inference interface; neither is a validated production clinical service.
 
-## Milestone 3 â€” implemented frozen-SLM agents
+## Milestone 3 — implemented frozen-SLM agents
 
 ```mermaid
 flowchart LR

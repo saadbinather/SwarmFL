@@ -112,7 +112,7 @@ The requested context-aware pilot is complete; review the
 the preregistered scale gates, and the inner-selected pipeline loses to fixed value
 and metadata in every fold. **No50k expansion, GAT, registry, Qwen training or
 Step4.** Keep A/B/C and the unevaluated frozen test intact. Do not select an outer
-candidate winner or weaken utility RÂ²/variation thresholds after these outcomes.
+candidate winner or weaken utility R²/variation thresholds after these outcomes.
 
 Future proposals only: quantify consultation-value target noise/uncertainty and
 teacher/final calibration shift; test whether additional independently justified
@@ -134,7 +134,7 @@ Preserve both CDC studies, UCI529 models and the frozen unevaluated test boundar
 Future reviewed proposals only: isolate fusion convergence/calibration from
 routing value estimation under matched masks/compute; compare robust cost-aware
 fixed controls and genuinely additional authorized origin-local signals; replicate
-logistic-condition gains without selecting an outer winner or relaxing RÂ². Keep
+logistic-condition gains without selecting an outer winner or relaxing R². Keep
 three-agent membership fixed unless a separate request changes it. No automatic
 scaling, dynamic registry, generalized federation or Qwen fine-tuning follows.
 The recommendations below are retained historical context.

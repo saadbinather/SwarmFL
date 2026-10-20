@@ -3,17 +3,12 @@
    :width: 460px
    :align: center
 
-Federated specialist collaboration, with explicit contracts
-=============================================================
+SwarmFL
+========
 
 SwarmFL is an experimental Python framework for independently managed
 specialists to collaborate through Flower with cost-aware consultation, dynamic
 fusion, authenticated delayed feedback, and version-controlled shared updates.
-
-.. warning::
-
-   SwarmFL is research software. It is not a medical device, clinical decision
-   system, privacy guarantee, or secure multi-hospital deployment.
 
 .. grid:: 1 1 3 3
    :gutter: 3
@@ -38,33 +33,10 @@ fusion, authenticated delayed feedback, and version-controlled shared updates.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Getting Started
+   :caption: Contents
 
-   getting-started
-   installation
-   quickstart
-   architecture
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Examples
-
+   start/index
    examples/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
    api
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Research
-
    research/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Community
-
    community/index

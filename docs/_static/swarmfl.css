@@ -15,8 +15,18 @@ html[data-theme="dark"] {
 }
 
 .navbar-brand img {
-  max-height: 3rem;
+  display: block;
+  height: 2.25rem;
+  max-height: 2.25rem;
+  max-width: 10rem;
+  object-fit: contain;
+  object-position: left center;
   width: auto;
+}
+
+.navbar-brand {
+  max-width: 11rem;
+  overflow: hidden;
 }
 
 .bd-main .bd-content .bd-article-container {

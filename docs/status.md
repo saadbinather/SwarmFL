@@ -293,7 +293,7 @@ gain/ranking, pairwise learning-to-rank and separately sampled observed-only
 bandit feedback. No hidden peer predictions enter prospective context.
 
 Inner-selected clinical BCE+cost **.356859** versus fixed value **.356182**;
-fold improvements **-.000560/-.000836/-.000634**. Utility RÂ²
+fold improvements **-.000560/-.000836/-.000634**. Utility R²
 **-.006698/.001156/-.001535** and only one varying origin/fold fail the frozen
 gates. Clinical routing also loses to the inner-selected metadata reference in
 each fold. Individual candidate averages are retained, not promoted as outer
@@ -318,7 +318,7 @@ numerical acceptance gates remain unchanged. No historical UCI529 model changes.
 Pilot variable-service objective at .02, selected versus always-best/fixed-value:
 original **.357150/.361401/.357775**; logistic **.381983/.397418/.391216**;
 mean **.361237/.370030/.361420**. Logistic's gains are real in this fixed fusion
-condition, but its fold utility RÂ² **.04201/.03209/.02737** misses the unchanged
+condition, but its fold utility R² **.04201/.03209/.02737** misses the unchanged
 .05 gate. Other conditions also fail; no promotion, 50k expansion or Step4.
 
 Actual Flower run **421462273542764912**, three clients, three rounds/nine updates.
@@ -335,7 +335,7 @@ artifact/report hashes match. QA **105 passed, 2 skipped**, Ruff lint/format
 Below is preserved historical status, including the earlier six-agent CDC study.
 
 M5 **Step 3.5 is complete as a separate CDC development benchmark**. Official
-UCI891253,680Ã—21 binary target is verified;50,861 new test records are frozen and
+UCI891253,680×21 binary target is verified;50,861 new test records are frozen and
 unevaluated. A15k development pilot compares roughly10k versus2500 fitting rows
 with the same grouped assessments and six legitimate, independently calibrated
 specialists. Identical-feature groups cannot cross any fitting/calibration/
@@ -344,7 +344,7 @@ labels entering upstream specialist or fusion fitting.
 
 Full-pilot variable-service/.02 mean-fusion selected objective .362145 versus
 always-best-peer .369197; cost-aware fixed value already .362780. Mean-fusion gain
-RÂ² .00029/.00085/.00257 fails the frozen gate, and peer variation is concentrated
+R² .00029/.00085/.00257 fails the frozen gate, and peer variation is concentrated
 in only two origins/fold. Other fusion conditions also fail their gates. Larger
 fitting sets improve specialist BCE but do not establish robust personalized peer
 selection here. **Stop scaling: no50k, advanced router, registry or promotion.**
@@ -383,7 +383,7 @@ Flower integration was actually run. See
 [features](experiments/m5-step03-routing-features.md),
 [protocol](experiments/m5-step03-protocol.md) and
 [execution log](devlog/2026-10-14-m5-step03.md) for complete evidence and fresh QA.
-Stop after Step 3. The following Step 2/M1â€“M4 descriptions are retained history.
+Stop after Step 3. The following Step 2/M1–M4 descriptions are retained history.
 
 M5 **Step 2 is complete as separate experiments; the original default is retained**.
 Three nested outer folds use only the original 364 training patients, with inner
@@ -411,7 +411,7 @@ Read [optimization](experiments/m5-step02-optimization-repair.md),
 routing, generalized fusion and Qwen fine-tuning are not implemented. Stop after
 Step 2 until further explicit instructions.
 
-## Historical Step 1 and M1â€“M4 status
+## Historical Step 1 and M1–M4 status
 
 M5 **Step 1 diagnostics only** is implemented separately from production models.
 Three seeded training/validation ablations reproduced the historical M2 final
@@ -433,9 +433,9 @@ reproduction evidence and limitations. Independent continuation replay verified
 runtime integrations skipped. Earlier full integration QA passed 56. All 628
 preserved artifact hashes match. Step 2 results are recorded above.
 
-M1â€“3 code paths, checkpoints and historical reports remain preserved. M4 is implemented and genuinely executed: signed prediction/outcome separation, delayed verified training feedback, selected-action routing/fusion learning, three-client Flower FedAvg, validation approval, immutable versions and rollback. Qwen and private classifiers remain frozen.
+M1–3 code paths, checkpoints and historical reports remain preserved. M4 is implemented and genuinely executed: signed prediction/outcome separation, delayed verified training feedback, selected-action routing/fusion learning, three-client Flower FedAvg, validation approval, immutable versions and rollback. Qwen and private classifiers remain frozen.
 
-The M4 CUDA stream processed 364 unique training patients, with seven approved rounds and 21 local updates. Independent audit verified 1,092 policy events, real delayed source labels, selected-only consultations, numerical predictions and FedAvg against all client shared checkpoints. Initial-to-approved shared L2 was 0.04321. Adaptive/frozen accuracy both 0.7885; BCE 0.44956 versus 0.45021. Validation mean BCE 0.338889â†’0.338277. These small descriptive changes do not establish superiority. No new historical-test evaluation occurred.
+The M4 CUDA stream processed 364 unique training patients, with seven approved rounds and 21 local updates. Independent audit verified 1,092 policy events, real delayed source labels, selected-only consultations, numerical predictions and FedAvg against all client shared checkpoints. Initial-to-approved shared L2 was 0.04321. Adaptive/frozen accuracy both 0.7885; BCE 0.44956 versus 0.45021. Validation mean BCE 0.338889→0.338277. These small descriptive changes do not establish superiority. No new historical-test evaluation occurred.
 
 Real frozen Qwen invoked get_routing_recommendation on approved v007, selected A from origin B, performed the authorized Flower consultation and returned trained numerical fusion to B. Independent replay confirmed the score. This synthetic API request had no label and all classification metrics remained null; its acknowledgement never entered feedback training. Qwen GPU residency was approximately 1.089 GiB under Ollama 0.40.4. A fresh 24-episode CPU integration skipped an insufficient-data trigger, approved one real three-client update and used it in a subsequent consultation. All 52 tests passed, including separate M3 Qwen regression; Ruff lint/format and pip check passed.
 
