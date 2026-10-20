@@ -142,7 +142,11 @@ ol {
 }
 
 .bd-sidebar-primary .sidebar-primary-items__start {
-  padding-top: 0.7rem;
+  padding-top: 0.8rem;
+}
+
+.bd-sidebar-primary .sidebar-primary-items__start > .sidebar-primary-item:first-child {
+  margin-bottom: 0.8rem;
 }
 
 .bd-sidebar-primary .sidebar-header-items {
@@ -213,7 +217,7 @@ ol {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.8rem;
-  padding: 0.2rem 0.35rem 0.85rem;
+  padding: 0.1rem 0.4rem 0.85rem;
 }
 
 .swarmfl-sidebar-brand a {
@@ -223,7 +227,8 @@ ol {
 .swarmfl-sidebar-brand img {
   display: block;
   height: auto;
-  max-width: 8.75rem;
+  max-width: 9rem;
+  width: 100%;
 }
 
 .swarmfl-sidebar-close {
@@ -333,21 +338,64 @@ ol {
 }
 
 #pst-collapse-sidebar-button {
-  border-radius: 0.42rem;
+  align-items: center;
+  background: color-mix(in srgb, var(--swarmfl-surface) 82%, transparent);
+  border: 1px solid var(--swarmfl-border);
+  border-radius: 0.48rem;
   color: var(--swarmfl-muted);
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.55rem;
+  justify-content: flex-start;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.62rem;
+  transition: background-color 120ms ease, border-color 120ms ease,
+    color 120ms ease;
+  width: 100%;
 }
 
 #pst-collapse-sidebar-button:hover {
-  background: color-mix(in srgb, var(--pst-color-primary) 9%, transparent);
+  background: color-mix(in srgb, var(--pst-color-primary) 7%, var(--swarmfl-surface));
+  border-color: color-mix(in srgb, var(--pst-color-primary) 55%, var(--swarmfl-border));
   color: var(--pst-color-primary);
+}
+
+#pst-collapse-sidebar-button:focus-visible {
+  outline: 2px solid var(--pst-color-primary);
+  outline-offset: 2px;
+}
+
+.swarmfl-collapse-icon {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 1.1rem;
+  justify-content: center;
 }
 
 #pst-collapse-sidebar-button .pst-icon {
   fill: none;
+  height: 1.1rem;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.6;
+  width: 1.1rem;
+}
+
+#pst-collapse-sidebar-button .swarmfl-collapse-icon__open,
+#pst-collapse-sidebar-button[aria-expanded="true"] .pst-expand-sidebar-label {
+  display: none;
+}
+
+#pst-collapse-sidebar-button[aria-expanded="false"] .swarmfl-collapse-icon__close,
+#pst-collapse-sidebar-button[aria-expanded="false"] .pst-collapse-sidebar-label {
+  display: none;
+}
+
+#pst-collapse-sidebar-button[aria-expanded="false"] .swarmfl-collapse-icon__open,
+#pst-collapse-sidebar-button[aria-expanded="false"] .pst-expand-sidebar-label {
+  display: inline-flex;
 }
 
 .swarmfl-hero {
