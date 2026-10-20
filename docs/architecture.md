@@ -5,8 +5,8 @@
 Read the Docs builds the Sphinx site from `docs/` on Ubuntu 24.04 with Python
 3.11. MyST renders the existing Markdown architecture, research, status, and
 limitations sources. PyData Sphinx Theme provides grouped navigation, search,
-project/version links, and edit links; Sphinx Design and Copybutton provide the
-homepage cards and copyable examples. Autodoc reads the public
+the purple project favicon, a persistent collapsible sidebar, and a dark-first
+responsive layout; Copybutton provides copyable examples. Autodoc reads the public
 `fed_med_agents` exports with runtime dependencies mocked, so the docs environment
 does not install the package or its Flower, Ray, PyTorch, NumPy, and Pydantic
 runtime stack.

@@ -7,7 +7,8 @@ with provenance. The release did not change routing, fusion, federation,
 consultation, registry, feedback, versioning, quickstart, or research algorithms.
 
 The Sphinx/Read the Docs build uses PyData Sphinx Theme, purple SwarmFL branding,
-the transparent project logo, grouped navigation, copyable examples, and
+the transparent project logo, a dedicated purple favicon, compact persistent
+sidebar navigation, a dark default with a theme toggle, copyable examples, and
 module-level public API pages. MyST reuses maintained Markdown sources. Runtime
 dependencies are mocked, so docs builds do not install Flower, Ray, PyTorch,
 NumPy, or Pydantic.
