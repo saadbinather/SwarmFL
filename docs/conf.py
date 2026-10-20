@@ -14,6 +14,8 @@ release = "0.1.0"
 
 extensions = [
     "myst_parser",
+    "sphinx_copybutton",
+    "sphinx_design",
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
@@ -44,9 +46,50 @@ autodoc_default_options = {
     "show-inheritance": True,
 }
 
-html_theme = "sphinx_rtd_theme"
-html_title = "SwarmFL 0.1.0 documentation"
-html_theme_options = {
-    "collapse_navigation": False,
-    "navigation_depth": 3,
+html_theme = "pydata_sphinx_theme"
+html_title = "SwarmFL documentation"
+html_logo = "../resources/swarmfl-logo-transparent.png"
+html_static_path = ["_static"]
+html_css_files = ["swarmfl.css"]
+
+html_context = {
+    "github_user": "saadbinather",
+    "github_repo": "SwarmFL",
+    "github_version": "main",
+    "doc_path": "docs",
 }
+html_theme_options = {
+    "logo": {
+        "text": "SwarmFL",
+    },
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": ["navbar-nav"],
+    "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
+    "navbar_persistent": ["search-button"],
+    "show_nav_level": 1,
+    "navigation_depth": 4,
+    "collapse_navigation": True,
+    "use_edit_page_button": True,
+    "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
+    "switcher": {
+        "json_url": "_static/versions.json",
+        "version_match": release,
+    },
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/saadbinather/SwarmFL",
+            "icon": "fa-brands fa-github",
+            "type": "fontawesome",
+        },
+        {
+            "name": "PyPI",
+            "url": "https://pypi.org/project/swarmfl/",
+            "icon": "fa-solid fa-box",
+            "type": "fontawesome",
+        },
+    ],
+}
+
+copybutton_prompt_text = r">>> |\.\.\. |\$ "
+copybutton_prompt_is_regexp = True

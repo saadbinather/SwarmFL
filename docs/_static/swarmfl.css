@@ -1,0 +1,28 @@
+:root {
+  --pst-color-primary: #6f42c1;
+  --pst-color-primary-highlight: #59359c;
+  --pst-color-secondary: #8b5cf6;
+  --pst-color-link: #6f42c1;
+  --pst-color-link-hover: #59359c;
+}
+
+html[data-theme="dark"] {
+  --pst-color-primary: #b794f6;
+  --pst-color-primary-highlight: #c4a7ff;
+  --pst-color-secondary: #a78bfa;
+  --pst-color-link: #c4a7ff;
+  --pst-color-link-hover: #ddd0ff;
+}
+
+.navbar-brand img {
+  max-height: 3rem;
+  width: auto;
+}
+
+.bd-main .bd-content .bd-article-container {
+  max-width: 58rem;
+}
+
+.sd-card {
+  border-top: 0.2rem solid var(--pst-color-primary);
+}

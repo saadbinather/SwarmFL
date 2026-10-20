@@ -1,51 +1,70 @@
-SwarmFL documentation
-=====================
+.. image:: ../resources/swarmfl-logo-transparent.png
+   :alt: SwarmFL
+   :width: 460px
+   :align: center
 
-SwarmFL is an experimental Python framework for federated multi-agent learning
-through independently managed specialists, selected-only Flower consultation,
-dynamic fusion, and feedback-driven shared updates.
+Federated specialist collaboration, with explicit contracts
+=============================================================
+
+SwarmFL is an experimental Python framework for independently managed
+specialists to collaborate through Flower with cost-aware consultation, dynamic
+fusion, authenticated delayed feedback, and version-controlled shared updates.
 
 .. warning::
 
    SwarmFL is research software. It is not a medical device, clinical decision
    system, privacy guarantee, or secure multi-hospital deployment.
 
+.. grid:: 1 1 3 3
+   :gutter: 3
+
+   .. grid-item-card:: Install SwarmFL
+      :link: installation
+      :link-type: doc
+
+      Install the published package or a source checkout.
+
+   .. grid-item-card:: Run the CPU quickstart
+      :link: examples/cpu-quickstart
+      :link-type: doc
+
+      Exercise three Flower clients, feedback, activation, and rollback.
+
+   .. grid-item-card:: Add a specialist
+      :link: custom-specialists
+      :link-type: doc
+
+      Declare a specialist using the public registry contracts.
+
 .. toctree::
    :maxdepth: 2
-   :caption: Documentation
+   :caption: Getting Started
 
-   Getting Started <getting-started>
-   Installation <installation>
-   Quickstart <quickstart>
-   Architecture <architecture>
-   Custom Specialists <custom-specialists>
-   API Reference <api>
-   Research <research>
-   Limitations <limitations>
+   getting-started
+   installation
+   quickstart
+   architecture
 
 .. toctree::
-   :hidden:
+   :maxdepth: 2
+   :caption: Examples
 
-   status
-   feedback-learning
-   next-steps
-   experiments/milestone-01
-   experiments/milestone-02
-   experiments/milestone-03
-   experiments/milestone-04
-   experiments/milestone-05
-   experiments/m5-step01-routing-diagnostics
-   experiments/m5-step02-protocol
-   experiments/m5-step02-optimization-repair
-   experiments/m5-step02-routing-repair
-   experiments/m5-step02-fusion-ablation
-   experiments/m5-step03-protocol
-   experiments/m5-step03-routing-features
-   experiments/m5-step03-intelligent-routing
-   experiments/m5-step035-protocol
-   experiments/m5-step035-benchmark
-   experiments/m5-step035-routing-feasibility
-   experiments/m5-step035-three-agent-protocol
-   experiments/m5-step035-three-agent-benchmark
-   experiments/m5-step035-three-agent-feasibility
-   experiments/m5-step036-context-routing
+   examples/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   api
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Research
+
+   research/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Community
+
+   community/index

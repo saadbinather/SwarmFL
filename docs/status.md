@@ -6,10 +6,11 @@ validation, and PyPI Trusted Publishing jobs; PyPI exposes the wheel and sdist
 with provenance. The release did not change routing, fusion, federation,
 consultation, registry, feedback, versioning, quickstart, or research algorithms.
 
-The documentation now has a Sphinx/Read the Docs build using the Read the Docs
-theme and MyST. It reuses the maintained Markdown sources and generates public API
-documentation while mocking runtime dependencies, so docs builds do not install
-Flower, Ray, PyTorch, NumPy, or Pydantic.
+The Sphinx/Read the Docs build uses PyData Sphinx Theme, purple SwarmFL branding,
+the transparent project logo, grouped navigation, copyable examples, and
+module-level public API pages. MyST reuses maintained Markdown sources. Runtime
+dependencies are mocked, so docs builds do not install Flower, Ray, PyTorch,
+NumPy, or Pydantic.
 
 The stable package cleanup keeps repository research implementations and tests
 available locally while excluding `fed_med_agents.experiments`, internal scripts,
