@@ -24,10 +24,12 @@
 
       pip install swarmfl
 
-   .. container:: swarmfl-home-links
+   .. container:: swarmfl-cta-grid
 
-      Start with the :doc:`quickstart`, or read the complete
-      :doc:`installation guide <installation>`.
+      - :doc:`Installation <installation>`
+      - :doc:`Quickstart <quickstart>`
+      - :doc:`API Reference <api>`
+      - :doc:`Research <research/index>`
 
    .. container:: swarmfl-maintainer
 

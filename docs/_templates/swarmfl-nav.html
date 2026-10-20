@@ -4,26 +4,57 @@
 {% set research_pages = ["research/index", "research", "status", "feedback-learning", "limitations", "next-steps", "research/reports", "community/index", "community/contributing", "community/security"] %}
 {% set section_pages = installation_pages + research_pages + ["quickstart", "examples/index", "custom-specialists", "api"] %}
 <nav class="bd-docs-nav bd-links" aria-label="{{ _('Site navigation') }}">
+  <div class="swarmfl-sidebar-brand">
+    <a href="{{ pathto('index') }}" aria-label="SwarmFL home">
+      <img src="{{ pathto('_static/swarmfl-logo-transparent.png', 1) }}" alt="SwarmFL">
+    </a>
+    <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle swarmfl-sidebar-close" aria-label="{{ _('Close navigation') }}">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="swarmfl-sidebar-search">
+    {% include "components/search-button-field.html" %}
+  </div>
   <p class="bd-links__title" role="heading" aria-level="1">{{ _("Navigation") }}</p>
   <div class="bd-toc-item navbar-nav">
     <ul class="nav bd-sidenav swarmfl-main-nav">
       <li class="toctree-l1{% if pagename == 'index' %} current active{% endif %}">
-        <a class="reference internal{% if pagename == 'index' %} current active{% endif %}" href="{{ pathto('index') }}">Home</a>
+        <a class="reference internal{% if pagename == 'index' %} current active{% endif %}" href="{{ pathto('index') }}">
+          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg>
+          <span>Home</span>
+        </a>
       </li>
       <li class="toctree-l1{% if pagename in installation_pages %} current active{% endif %}">
-        <a class="reference internal{% if pagename in installation_pages %} current active{% endif %}" href="{{ pathto('installation') }}">Installation</a>
+        <a class="reference internal{% if pagename in installation_pages %} current active{% endif %}" href="{{ pathto('installation') }}">
+          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+          <span>Installation</span>
+        </a>
       </li>
       <li class="toctree-l1{% if pagename == 'quickstart' %} current active{% endif %}">
-        <a class="reference internal{% if pagename == 'quickstart' %} current active{% endif %}" href="{{ pathto('quickstart') }}">Quickstart</a>
+        <a class="reference internal{% if pagename == 'quickstart' %} current active{% endif %}" href="{{ pathto('quickstart') }}">
+          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 9-12h-7z"></path></svg>
+          <span>Quickstart</span>
+        </a>
       </li>
       <li class="toctree-l1{% if pagename.startswith('examples/') or pagename == 'custom-specialists' %} current active{% endif %}">
-        <a class="reference internal{% if pagename.startswith('examples/') or pagename == 'custom-specialists' %} current active{% endif %}" href="{{ pathto('examples/index') }}">Examples</a>
+        <a class="reference internal{% if pagename.startswith('examples/') or pagename == 'custom-specialists' %} current active{% endif %}" href="{{ pathto('examples/index') }}">
+          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m8 9-4 3 4 3"></path><path d="m16 9 4 3-4 3"></path><path d="m14 5-4 14"></path></svg>
+          <span>Examples</span>
+        </a>
       </li>
       <li class="toctree-l1{% if pagename == 'api' or pagename.startswith('api/') %} current active{% endif %}">
-        <a class="reference internal{% if pagename == 'api' or pagename.startswith('api/') %} current active{% endif %}" href="{{ pathto('api') }}">API Reference</a>
+        <a class="reference internal{% if pagename == 'api' or pagename.startswith('api/') %} current active{% endif %}" href="{{ pathto('api') }}">
+          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span>API Reference</span>
+        </a>
       </li>
       <li class="toctree-l1{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}">
-        <a class="reference internal{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}" href="{{ pathto('research/index') }}">Research</a>
+        <a class="reference internal{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}" href="{{ pathto('research/index') }}">
+          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M9 3h6"></path><path d="M10 9V3h4v6l5 9a2 2 0 0 1-2 3H7a2 2 0 0 1-2-3z"></path><path d="M8.5 15h7"></path></svg>
+          <span>Research</span>
+        </a>
       </li>
     </ul>
     {% if (pagename in section_pages or pagename.startswith('api/') or pagename.startswith('examples/')) and pagename != 'start/index' %}
@@ -36,9 +67,13 @@
         titles_only=True
       ) %}
       {% if section_navigation | trim %}
-        <div class="swarmfl-section-nav">
+        <details class="swarmfl-section-nav" open>
+          <summary>
+            <span>{{ _("In this section") }}</span>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg>
+          </summary>
           {{ section_navigation }}
-        </div>
+        </details>
       {% endif %}
     {% endif %}
   </div>
