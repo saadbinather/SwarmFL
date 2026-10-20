@@ -1,5 +1,8 @@
-SwarmFL
-========
+.. title:: SwarmFL
+
+.. image:: ../resources/swarmfl-logo-transparent.png
+   :alt: SwarmFL
+   :class: swarmfl-home-logo
 
 .. container:: swarmfl-intro
 

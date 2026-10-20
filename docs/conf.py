@@ -49,7 +49,7 @@ autodoc_default_options = {
 }
 
 html_theme = "pydata_sphinx_theme"
-html_title = "SwarmFL documentation"
+html_title = "SwarmFL"
 html_logo = "../resources/swarmfl-logo-transparent.png"
 html_favicon = "../resources/swarmfl-icon.png"
 templates_path = ["_templates"]
