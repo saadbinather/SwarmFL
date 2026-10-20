@@ -1,31 +1,38 @@
 .. title:: SwarmFL
 
-.. image:: ../resources/swarmfl-logo-transparent.png
-   :alt: SwarmFL
-   :class: swarmfl-home-logo
+.. raw:: html
 
-.. container:: swarmfl-intro
+   <h1 class="visually-hidden">SwarmFL</h1>
 
-   SwarmFL is an experimental Python framework for independently managed
-   specialists to collaborate through Flower, with cost-aware consultation,
-   dynamic fusion, authenticated delayed feedback, and version-controlled shared
-   updates.
+.. container:: swarmfl-hero
 
-Install
--------
+   .. image:: ../resources/swarmfl-logo-transparent.png
+      :alt: SwarmFL
+      :class: swarmfl-home-logo
 
-.. code-block:: console
-   :class: swarmfl-install
+   .. container:: swarmfl-intro
 
-   pip install swarmfl
+      An experimental Python framework for independently managed specialists to
+      collaborate through Flower—with cost-aware consultation, dynamic fusion,
+      authenticated delayed feedback, and version-controlled shared updates.
 
-Start with the :doc:`quickstart`, or review the complete
-:doc:`installation instructions <installation>`.
+   .. rubric:: Install
+      :class: swarmfl-install-label
 
-----
+   .. code-block:: console
+      :class: swarmfl-install
 
-Actively developed and maintained by
-`Saad Bin Ather <https://github.com/saadbinather>`_.
+      pip install swarmfl
+
+   .. container:: swarmfl-home-links
+
+      Start with the :doc:`quickstart`, or read the complete
+      :doc:`installation guide <installation>`.
+
+   .. container:: swarmfl-maintainer
+
+      Actively developed and maintained by
+      `Saad Bin Ather <https://github.com/saadbinather>`_.
 
 .. toctree::
    :maxdepth: 3
