@@ -1,5 +1,12 @@
 # Current implementation status — 2026-10-20
 
+The CI dependency audit now replaces Flower 1.40.0's vulnerable transitive
+uv<0.13.0 installation with uv==0.13.4 inside the audit-only environment.
+Flower 1.41.0 and its current upstream branch retain the incompatible upper
+bound, so runtime package metadata remains unchanged. The same focused repair
+upgrades unconstrained certifi to >=2026.10.19; the local audit reports no
+unignored known vulnerabilities.
+
 Stable `swarmfl` **0.1.0** was published from annotated tag `v0.1.0` at
 `7a7e437` on 2026-10-20. Publish workflow run `39401803553` passed its build,
 validation, and PyPI Trusted Publishing jobs; PyPI exposes the wheel and sdist

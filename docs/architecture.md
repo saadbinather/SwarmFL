@@ -13,6 +13,12 @@ runtime stack.
 
 ## Step 8B release surface
 
+The CI dependency-audit job uses the normal project dependencies, then replaces
+only Flower's unused uv-backed CLI helper with the first patched uv release.
+This audit-only override is necessary while released Flower metadata requires
+uv<0.13.0; it does not alter SwarmFL's published dependency metadata or the
+test-and-build environment.
+
 Stable `0.1.0` preparation preserves the `src/fed_med_agents` package and every
 runtime component. Release promotion changes package/version metadata and public
 documentation only; it does not change collaboration protocols or model behavior.

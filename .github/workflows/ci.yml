@@ -129,6 +129,10 @@ jobs:
           python-version: "3.11"
       - run: python -m pip install --upgrade pip setuptools
       - run: python -m pip install ".[dev]"
+      # Flower 1.40.0 constrains uv<0.13.0 even though SwarmFL does not invoke
+      # Flower's uv-backed CLI. Replace that audit-only helper with the first
+      # release containing the PYSEC-2026-4321 fix until Flower widens its bound.
+      - run: python -m pip install --no-deps "certifi>=2026.10.19" "uv==0.13.4"
       # Flower 1.40.0 still pins Ray 2.55.1. PYSEC-2026-2273 is confined to
       # ray.data.read_webdataset unsafe pickle/PT decoding; SwarmFL never calls
       # Ray Data or accepts WebDataset inputs. Torch currently requires setuptools

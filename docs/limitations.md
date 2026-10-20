@@ -34,6 +34,11 @@
   not yet CI-matrix-validated target.
 - Flower 1.40.0 is pinned for release packaging; historical reports retain the
   Flower versions actually used for their runs.
+- Flower 1.40.0, Flower 1.41.0, and the checked upstream branch constrain
+  uv<0.13.0, while the PYSEC-2026-4321 fix begins at uv==0.13.4. CI therefore
+  installs the fixed uv only in its audit environment. SwarmFL does not invoke
+  Flower's uv-backed CLI, but this override should be removed when Flower widens
+  its declared dependency range.
 - Flower's simulation extra pins Ray 2.55.1, affected by PYSEC-2026-2273. The
   vulnerable `ray.data.read_webdataset` decoder is not imported or called by
   SwarmFL, and the supported demo accepts no WebDataset/TAR input, but the affected

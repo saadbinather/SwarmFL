@@ -1,5 +1,8 @@
 # Prioritized next implementation tasks
 
+- Remove the CI-only uv==0.13.4 audit override once a compatible Flower release
+  widens its current uv<0.13.0 dependency bound.
+
 ## Post-release documentation and maintenance
 
 1. Connect the repository to Read the Docs and verify the hosted build from the
