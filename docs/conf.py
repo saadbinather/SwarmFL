@@ -51,10 +51,13 @@ autodoc_default_options = {
 html_theme = "pydata_sphinx_theme"
 html_title = "SwarmFL documentation"
 html_logo = "../resources/swarmfl-logo-transparent.png"
+templates_path = ["_templates"]
+html_sidebars = {"**": ["swarmfl-collapse.html", "swarmfl-nav.html"]}
 html_static_path = ["_static"]
 html_css_files = ["swarmfl.css"]
 
 html_context = {
+    "default_mode": "dark",
     "github_user": "saadbinather",
     "github_repo": "SwarmFL",
     "github_version": "main",
@@ -65,18 +68,14 @@ html_theme_options = {
         "text": "",
     },
     "navbar_start": ["navbar-logo"],
-    "navbar_center": ["navbar-nav"],
-    "navbar_end": ["version-switcher", "theme-switcher", "navbar-icon-links"],
+    "navbar_center": [],
+    "navbar_end": ["theme-switcher"],
     "navbar_persistent": ["search-button"],
     "show_nav_level": 1,
     "navigation_depth": 3,
     "collapse_navigation": True,
     "use_edit_page_button": True,
-    "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
-    "switcher": {
-        "json_url": "_static/versions.json",
-        "version_match": release,
-    },
+    "secondary_sidebar_items": ["page-toc"],
     "icon_links": [
         {
             "name": "GitHub",

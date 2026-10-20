@@ -1,0 +1,47 @@
+{# Global navigation in the left sidebar; PyData normally places these links in
+   the header and renders only the active section's children here. #}
+{% set installation_pages = ["installation", "getting-started", "architecture", "start/index"] %}
+{% set research_pages = ["research/index", "research", "status", "feedback-learning", "limitations", "next-steps", "research/reports", "community/index", "community/contributing", "community/security"] %}
+{% set section_pages = installation_pages + research_pages + ["quickstart", "examples/index", "custom-specialists", "api"] %}
+<nav class="bd-docs-nav bd-links" aria-label="{{ _('Site navigation') }}">
+  <p class="bd-links__title" role="heading" aria-level="1">{{ _("Navigation") }}</p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="nav bd-sidenav swarmfl-main-nav">
+      <li class="toctree-l1{% if pagename == 'index' %} current active{% endif %}">
+        <a class="reference internal{% if pagename == 'index' %} current active{% endif %}" href="{{ pathto('index') }}">Home</a>
+      </li>
+      <li class="toctree-l1{% if pagename in installation_pages %} current active{% endif %}">
+        <a class="reference internal{% if pagename in installation_pages %} current active{% endif %}" href="{{ pathto('installation') }}">Installation</a>
+      </li>
+      <li class="toctree-l1{% if pagename == 'quickstart' %} current active{% endif %}">
+        <a class="reference internal{% if pagename == 'quickstart' %} current active{% endif %}" href="{{ pathto('quickstart') }}">Quickstart</a>
+      </li>
+      <li class="toctree-l1{% if pagename.startswith('examples/') or pagename == 'custom-specialists' %} current active{% endif %}">
+        <a class="reference internal{% if pagename.startswith('examples/') or pagename == 'custom-specialists' %} current active{% endif %}" href="{{ pathto('examples/index') }}">Examples</a>
+      </li>
+      <li class="toctree-l1{% if pagename == 'api' or pagename.startswith('api/') %} current active{% endif %}">
+        <a class="reference internal{% if pagename == 'api' or pagename.startswith('api/') %} current active{% endif %}" href="{{ pathto('api') }}">API Reference</a>
+      </li>
+      <li class="toctree-l1{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}">
+        <a class="reference internal{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}" href="{{ pathto('research/index') }}">Research</a>
+      </li>
+    </ul>
+    {% if (pagename in section_pages or pagename.startswith('api/') or pagename.startswith('examples/')) and pagename != 'start/index' %}
+      {% set section_navigation = generate_toctree_html(
+        "sidebar",
+        show_nav_level=theme_show_nav_level | int,
+        maxdepth=theme_navigation_depth | int,
+        collapse=theme_collapse_navigation | tobool,
+        includehidden=theme_sidebar_includehidden | tobool,
+        titles_only=True
+      ) %}
+      {% if section_navigation | trim %}
+        <div class="swarmfl-section-nav">
+          {{ section_navigation }}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</nav>
+
+

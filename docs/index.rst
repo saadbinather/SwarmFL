@@ -1,42 +1,36 @@
-.. image:: ../resources/swarmfl-logo-transparent.png
-   :alt: SwarmFL
-   :width: 460px
-   :align: center
-
 SwarmFL
 ========
 
-SwarmFL is an experimental Python framework for independently managed
-specialists to collaborate through Flower with cost-aware consultation, dynamic
-fusion, authenticated delayed feedback, and version-controlled shared updates.
+.. container:: swarmfl-intro
 
-.. grid:: 1 1 3 3
-   :gutter: 3
+   SwarmFL is an experimental Python framework for independently managed
+   specialists to collaborate through Flower, with cost-aware consultation,
+   dynamic fusion, authenticated delayed feedback, and version-controlled shared
+   updates.
 
-   .. grid-item-card:: Install SwarmFL
-      :link: installation
-      :link-type: doc
+Install
+-------
 
-      Install the published package or a source checkout.
+.. code-block:: console
+   :class: swarmfl-install
 
-   .. grid-item-card:: Run the CPU quickstart
-      :link: examples/cpu-quickstart
-      :link-type: doc
+   pip install swarmfl
 
-      Exercise three Flower clients, feedback, activation, and rollback.
+Start with the :doc:`quickstart`, or review the complete
+:doc:`installation instructions <installation>`.
 
-   .. grid-item-card:: Add a specialist
-      :link: custom-specialists
-      :link-type: doc
+----
 
-      Declare a specialist using the public registry contracts.
+Actively developed and maintained by
+`Saad Bin Ather <https://github.com/saadbinather>`_.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents
+   :maxdepth: 3
+   :class: swarmfl-root-nav
 
-   start/index
+   Home <self>
+   installation
+   quickstart
    examples/index
    api
    research/index
-   community/index

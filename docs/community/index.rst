@@ -8,5 +8,3 @@ Project contribution, security, limitations, and maintenance information.
 
    Contributing <contributing>
    Security <security>
-   Limitations <../limitations>
-   Next steps <../next-steps>
