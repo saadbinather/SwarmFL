@@ -49,6 +49,9 @@ jobs:
               "research/checkpoints/",
               "research/logs/",
           )
+          prohibited_paths = (
+              "research/results.md",
+          )
           prohibited_suffixes = (
               ".pt", ".pth", ".ckpt", ".onnx", ".joblib", ".pkl", ".pickle",
               ".parquet", ".feather", ".npy", ".npz", ".sqlite", ".sqlite3",
@@ -66,7 +69,8 @@ jobs:
               path = normalize(name)
               lowered = path.lower()
               return (
-                  any(path == prefix.rstrip("/") or path.startswith(prefix) for prefix in prohibited_prefixes)
+                  path in prohibited_paths
+                  or any(path == prefix.rstrip("/") or path.startswith(prefix) for prefix in prohibited_prefixes)
                   or lowered.endswith(prohibited_suffixes)
                   or (
                       PurePosixPath(path).name == ".env"
@@ -100,7 +104,7 @@ jobs:
               "pyproject.toml",
               "README.md",
               "examples/custom_specialist.py",
-              "research/results.md",
+              "research/README.md",
           }
           if missing := required_wheel - normalized_wheel:
               raise SystemExit(f"Required wheel content missing: {sorted(missing)}")

@@ -1,7 +1,8 @@
 include LICENSE NOTICE README.md SECURITY.md CONTRIBUTING.md CITATION.cff
 include pyproject.toml
 recursive-include examples *.py *.json *.md
-recursive-include research *.md
+recursive-exclude research *.md
+include research/README.md
 prune docs/devlog
 prune docs/experiments
 prune src/fed_med_agents/experiments

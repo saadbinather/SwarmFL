@@ -24,6 +24,9 @@ PROHIBITED_PREFIXES = (
     "research/checkpoints/",
     "research/logs/",
 )
+PROHIBITED_PATHS = {
+    "research/results.md",
+}
 PROHIBITED_SUFFIXES = (
     ".pt",
     ".pth",
@@ -58,7 +61,7 @@ REQUIRED_SDIST = {
     "pyproject.toml",
     "README.md",
     "examples/custom_specialist.py",
-    "research/results.md",
+    "research/README.md",
 }
 
 
@@ -75,7 +78,8 @@ def is_prohibited(name: str) -> bool:
     path = normalize(name)
     filename = PurePosixPath(path).name
     return (
-        any(path == prefix.rstrip("/") or path.startswith(prefix) for prefix in PROHIBITED_PREFIXES)
+        path in PROHIBITED_PATHS
+        or any(path == prefix.rstrip("/") or path.startswith(prefix) for prefix in PROHIBITED_PREFIXES)
         or path.lower().endswith(PROHIBITED_SUFFIXES)
         or filename == ".env"
         or (filename.startswith(".env.") and filename != ".env.example")
