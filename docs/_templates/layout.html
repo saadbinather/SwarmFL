@@ -7,3 +7,19 @@
     {{ super() }}
   {% endif %}
 {% endblock %}
+
+{% block extrahead %}
+  {{ super() }}
+  {#- Link previews for chat apps and social sites. -#}
+  {%- set page_title = "SwarmFL" if pagename == "index" else (title | striptags) ~ " | SwarmFL" %}
+  <meta name="description" content="{{ swarmfl_description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SwarmFL">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ swarmfl_description }}">
+  <meta property="og:url" content="{{ swarmfl_site_url }}{{ pagename }}.html">
+  <meta property="og:image" content="{{ swarmfl_site_url }}_static/swarmfl-logo-transparent.png">
+  <meta property="og:image:alt" content="SwarmFL logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#6f42c1">
+{% endblock %}

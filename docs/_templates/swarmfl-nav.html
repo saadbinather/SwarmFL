@@ -1,12 +1,11 @@
 {# Global navigation in the left sidebar; PyData normally places these links in
    the header and renders only the active section's children here. #}
 {% set installation_pages = ["installation", "getting-started", "architecture", "start/index"] %}
-{% set research_pages = ["research/index", "research", "status", "feedback-learning", "limitations", "next-steps", "research/reports", "community/index", "community/contributing", "community/security"] %}
-{% set section_pages = installation_pages + research_pages + ["quickstart", "examples/index", "custom-specialists", "api"] %}
+{% set section_pages = installation_pages + ["quickstart", "examples/index", "custom-specialists", "api"] %}
 <nav class="bd-docs-nav bd-links" aria-label="{{ _('Site navigation') }}">
   <div class="swarmfl-sidebar-brand">
     <a href="{{ pathto('index') }}" aria-label="SwarmFL home">
-      <img src="{{ pathto('_static/swarmfl-logo-transparent.png', 1) }}" alt="SwarmFL">
+      <img class="dark-light" src="{{ pathto('_static/swarmfl-logo-transparent.png', 1) }}" alt="SwarmFL">
     </a>
     <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle swarmfl-sidebar-close" aria-label="{{ _('Close navigation') }}">
       <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
@@ -48,12 +47,6 @@
         <a class="reference internal{% if pagename == 'api' or pagename.startswith('api/') %} current active{% endif %}" href="{{ pathto('api') }}">
           <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
           <span>API Reference</span>
-        </a>
-      </li>
-      <li class="toctree-l1{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}">
-        <a class="reference internal{% if pagename in research_pages or pagename.startswith('experiments/') %} current active{% endif %}" href="{{ pathto('research/index') }}">
-          <svg class="swarmfl-nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M9 3h6"></path><path d="M10 9V3h4v6l5 9a2 2 0 0 1-2 3H7a2 2 0 0 1-2-3z"></path><path d="M8.5 15h7"></path></svg>
-          <span>Research</span>
         </a>
       </li>
     </ul>
