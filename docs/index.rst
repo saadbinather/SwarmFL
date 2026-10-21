@@ -1,3 +1,4 @@
+
 .. title:: SwarmFL
 
 .. container:: swarmfl-hero
@@ -8,17 +9,20 @@
 
          <h1 class="visually-hidden">SwarmFL</h1>
          <img
-           class="swarmfl-hero-logo dark-light"
+           class="swarmfl-hero-logo"
            src="_static/swarmfl-logo-transparent.png"
            alt="SwarmFL"
+           width="900"
+           height="300"
+           decoding="async"
          >
 
       .. container:: swarmfl-intro
 
-         SwarmFL is an open-source Python framework that enables multiple AI specialists
-         to collaborate using federated learning. Built on Flower, it supports intelligent
-         specialist selection, cost-aware communication, prediction fusion, and
-         feedback-driven learning.
+         SwarmFL is an open-source Python framework that allows AI specialists
+         to collaborate through federated learning. Built on Flower, it helps
+         select suitable specialists, combine their predictions, manage
+         consultation costs, and improve collaboration using feedback.
 
       .. code-block:: console
          :class: swarmfl-install
@@ -167,7 +171,8 @@
 .. container:: swarmfl-maintainer
 
    Actively developed and maintained by
-   `Saad Bin Ather <https://github.com/saadbinather>`_.
+   `Saad <https://github.com/saadbinather>`_, `Saif <https://github.com/rajasaifr>`_
+   , `Ali <https://github.com/Alihassan0155>`_
 
 .. toctree::
    :maxdepth: 3
