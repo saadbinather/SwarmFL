@@ -37,9 +37,22 @@ exclude_patterns = [
     "Thumbs.db",
     ".DS_Store",
     "devlog/**",
+    # Research results are confidential and are not published on the website.
+    # The source files stay in the repository; only the build excludes them.
+    "research.md",
+    "status.md",
+    "feedback-learning.md",
+    "limitations.md",
+    "next-steps.md",
+    "research/reports.rst",
+    "experiments/**",
+    "community/**",
 ]
 
 myst_fence_as_directive = ["mermaid"]
+# Diagrams size to their content; colours come from swarmfl.css so they follow
+# the light/dark switch without re-rendering.
+mermaid_height = "auto"
 
 autodoc_mock_imports = ["flwr", "numpy", "pydantic", "torch"]
 autodoc_default_options = {
@@ -59,6 +72,12 @@ html_css_files = ["swarmfl.css"]
 
 html_context = {
     "default_mode": "dark",
+    # Used by _templates/layout.html for link-preview (Open Graph) metadata.
+    "swarmfl_site_url": "https://swarmfl.readthedocs.io/en/latest/",
+    "swarmfl_description": (
+        "SwarmFL is an experimental Python framework for federated multi-agent "
+        "learning: independently managed specialists collaborate through Flower."
+    ),
     "github_user": "saadbinather",
     "github_repo": "SwarmFL",
     "github_version": "main",
@@ -70,13 +89,13 @@ html_theme_options = {
     },
     "navbar_start": ["components/navbar-logo"],
     "navbar_center": [],
-    "navbar_end": ["theme-switcher"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "navbar_persistent": ["search-button"],
     "show_nav_level": 1,
     "navigation_depth": 3,
     "collapse_navigation": True,
     "use_edit_page_button": True,
-    "secondary_sidebar_items": ["page-toc"],
+    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
     "icon_links": [
         {
             "name": "GitHub",
