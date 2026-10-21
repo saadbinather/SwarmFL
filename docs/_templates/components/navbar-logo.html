@@ -1,0 +1,21 @@
+{# One transparent SwarmFL wordmark works in both themes; avoid PyData's
+   duplicate light/dark image elements when both sources are identical. #}
+{% if theme_logo_link %}
+  {% set href = theme_logo_link %}
+{% elif not theme_logo.get("link") %}
+  {% set href = pathto(root_doc) %}
+{% elif hasdoc(theme_logo.get("link")) %}
+  {% set href = pathto(theme_logo.get("link")) %}
+{% else %}
+  {% set href = theme_logo.get("link") %}
+{% endif %}
+
+<a class="navbar-brand logo" href="{{ href }}" aria-label="SwarmFL home">
+  <img
+    src="{{ pathto('_static/swarmfl-logo-transparent.png', 1) }}"
+    class="logo__image"
+    alt="SwarmFL"
+    width="2048"
+    height="682"
+  >
+</a>

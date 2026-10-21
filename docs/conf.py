@@ -68,7 +68,7 @@ html_theme_options = {
     "logo": {
         "text": "",
     },
-    "navbar_start": ["navbar-logo"],
+    "navbar_start": ["components/navbar-logo"],
     "navbar_center": [],
     "navbar_end": ["theme-switcher"],
     "navbar_persistent": ["search-button"],

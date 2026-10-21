@@ -78,15 +78,17 @@ ol {
 }
 
 .navbar-brand {
-  max-width: 10.5rem;
+  align-items: center;
+  display: inline-flex;
+  max-width: 8.75rem;
   overflow: hidden;
 }
 
 .navbar-brand img {
   display: block;
-  height: 2.15rem;
-  max-height: 2.15rem;
-  max-width: 9.5rem;
+  height: auto;
+  max-height: 1.85rem;
+  max-width: 8rem;
   object-fit: contain;
   object-position: left center;
   width: auto;
@@ -127,9 +129,7 @@ ol {
 }
 
 @media (min-width: 960px) {
-  /* The sidebar carries the desktop wordmark and search affordance. Keep the
-     compact header controls for theme switching without repeating them. */
-  .bd-header .navbar-brand,
+  /* Search lives in the fixed sidebar on desktop; retain compact top branding. */
   .bd-header .search-button {
     display: none;
   }
@@ -228,6 +228,8 @@ ol {
   display: block;
   height: auto;
   max-width: 9rem;
+  object-fit: contain;
+  object-position: left center;
   width: 100%;
 }
 
@@ -417,6 +419,18 @@ ol {
   height: auto;
   margin: 0 0 1.55rem;
   max-width: min(82%, 25rem);
+  object-fit: contain;
+  object-position: left center;
+  width: 100%;
+}
+
+.navbar-brand img,
+.swarmfl-sidebar-brand img,
+.swarmfl-home-logo {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .swarmfl-intro p {

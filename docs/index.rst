@@ -6,9 +6,16 @@
 
 .. container:: swarmfl-hero
 
-   .. image:: ../resources/swarmfl-logo-transparent.png
-      :alt: SwarmFL
-      :class: swarmfl-home-logo
+   .. raw:: html
+
+      <img
+        class="swarmfl-home-logo"
+        src="_static/swarmfl-logo-transparent.png"
+        alt="SwarmFL"
+        width="2048"
+        height="682"
+        decoding="async"
+      >
 
    .. container:: swarmfl-intro
 
