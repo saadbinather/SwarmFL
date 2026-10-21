@@ -40,7 +40,7 @@ all = ["pandas>=2.2,<4", "requests>=2.32,<3", "scikit-learn>=1.5,<2", "ucimlrepo
 swarmfl-quickstart = "fed_med_agents.quickstart:main"
 
 [project.urls]
-Documentation = "https://github.com/saadbinather/SwarmFL#readme"
+Documentation = "https://swarmfl.readthedocs.io/en/latest/"
 Issues = "https://github.com/saadbinather/SwarmFL/issues"
 Repository = "https://github.com/saadbinather/SwarmFL"
 

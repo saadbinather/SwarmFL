@@ -52,6 +52,7 @@ research/runs/
 research/artifacts/
 research/checkpoints/
 research/logs/
+research/results.md
 
 # Local-only repository and experiment tooling
 /AGENTS.md

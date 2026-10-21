@@ -55,7 +55,7 @@ Results are saved to `demo/result.json`.
 - [Architecture](docs/architecture.md)
 - [Custom Specialist Example](examples/custom_specialist.py)
 - [Research](research/README.md)
-- [Experimental Results](research/results.md)
+- [Research Reports](https://swarmfl.readthedocs.io/en/latest/research/)
 - [Limitations](docs/limitations.md)
 - [Security](SECURITY.md)
 
