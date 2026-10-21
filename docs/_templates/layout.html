@@ -10,6 +10,15 @@
 
 {% block extrahead %}
   {{ super() }}
+  <script>
+    try {
+      if (window.localStorage.getItem("swarmfl-sidebar-collapsed") === "true") {
+        document.documentElement.dataset.swarmflSidebar = "collapsed";
+      }
+    } catch (_error) {
+      /* Storage is optional. */
+    }
+  </script>
   {#- Link previews for chat apps and social sites. -#}
   {%- set page_title = "SwarmFL" if pagename == "index" else (title | striptags) ~ " | SwarmFL" %}
   <meta name="description" content="{{ swarmfl_description }}">

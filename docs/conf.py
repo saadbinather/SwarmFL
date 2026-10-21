@@ -69,6 +69,7 @@ templates_path = ["_templates"]
 html_sidebars = {"**": ["swarmfl-collapse.html", "swarmfl-nav.html"]}
 html_static_path = ["_static"]
 html_css_files = ["swarmfl.css"]
+html_js_files = ["swarmfl-sidebar.js"]
 
 html_context = {
     "default_mode": "dark",
@@ -94,8 +95,8 @@ html_theme_options = {
     "show_nav_level": 1,
     "navigation_depth": 3,
     "collapse_navigation": True,
-    "use_edit_page_button": True,
-    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
+    "use_edit_page_button": False,
+    "secondary_sidebar_items": ["page-toc"],
     "icon_links": [
         {
             "name": "GitHub",
