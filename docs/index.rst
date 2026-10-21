@@ -4,22 +4,21 @@
 
    .. container:: swarmfl-hero-text
 
-      .. container:: swarmfl-badges
-
-         - v\ |release|
-         - Alpha
-         - Python 3.11–3.13
-         - Apache-2.0
-
       .. raw:: html
 
-         <h1 class="swarmfl-headline">Federated multi-agent learning, built on Flower.</h1>
+         <h1 class="visually-hidden">SwarmFL</h1>
+         <img
+           class="swarmfl-hero-logo dark-light"
+           src="_static/swarmfl-logo-transparent.png"
+           alt="SwarmFL"
+         >
 
       .. container:: swarmfl-intro
 
-         An experimental Python framework for independently managed specialists to
-         collaborate through Flower—with cost-aware consultation, dynamic fusion,
-         authenticated delayed feedback, and version-controlled shared updates.
+         SwarmFL is an open-source Python framework that enables multiple AI specialists
+         to collaborate using federated learning. Built on Flower, it supports intelligent
+         specialist selection, cost-aware communication, prediction fusion, and
+         feedback-driven learning.
 
       .. code-block:: console
          :class: swarmfl-install
