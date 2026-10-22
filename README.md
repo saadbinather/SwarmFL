@@ -8,6 +8,7 @@
 [![Python](https://img.shields.io/pypi/pyversions/swarmfl?color=blue&style=flat)](https://pypi.org/project/swarmfl/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue?style=flat)](LICENSE)
 [![Docs](https://img.shields.io/badge/view-docs-blue?style=flat)](https://swarmfl.readthedocs.io/en/latest/)
+
 **SwarmFL** is an experimental Python framework for federated multi-agent learning. It enables independently managed specialists to collaborate through Flower, with cost-aware consultation, dynamic prediction fusion, feedback-driven updates, and version control.
 
 
