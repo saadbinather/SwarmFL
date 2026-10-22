@@ -6,6 +6,7 @@
 [![PyPI](https://img.shields.io/pypi/v/swarmfl)](https://pypi.org/project/swarmfl/)
 [![Python](https://img.shields.io/pypi/pyversions/swarmfl)](https://pypi.org/project/swarmfl/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+[![Documentation](https://img.shields.io/badge/Docs-Read%20the%20Docs-7B42F6?logo=readthedocs&logoColor=white)](https://swarmfl.readthedocs.io/en/latest/)
 
 **SwarmFL** is an experimental Python framework for federated multi-agent learning. It enables independently managed specialists to collaborate through Flower, with cost-aware consultation, dynamic prediction fusion, feedback-driven updates, and version control.
 
@@ -52,12 +53,13 @@ Results are saved to `demo/result.json`.
 
 ## Documentation
 
-- [Architecture](docs/architecture.md)
-- [Custom Specialist Example](examples/custom_specialist.py)
-- [Research](research/README.md)
-- [Research Reports](https://swarmfl.readthedocs.io/en/latest/research/)
-- [Limitations](docs/limitations.md)
-- [Security](SECURITY.md)
+📚 **[Explore the SwarmFL Documentation](https://swarmfl.readthedocs.io/en/latest/)**
+
+- [Getting Started](https://swarmfl.readthedocs.io/en/latest/start/index.html)
+- [Installation](https://swarmfl.readthedocs.io/en/latest/installation.html)
+- [Quickstart](https://swarmfl.readthedocs.io/en/latest/quickstart.html)
+- [API Reference](https://swarmfl.readthedocs.io/en/latest/api.html)
+- [Research](https://swarmfl.readthedocs.io/en/latest/research/index.html)
 
 ## Research
 
