@@ -10,14 +10,6 @@
 [![Docs](https://img.shields.io/badge/view-docs-blue?style=flat)](https://swarmfl.readthedocs.io/en/latest/)
 **SwarmFL** is an experimental Python framework for federated multi-agent learning. It enables independently managed specialists to collaborate through Flower, with cost-aware consultation, dynamic prediction fusion, feedback-driven updates, and version control.
 
-## Features
-
-- **Specialist Registry:** Register heterogeneous specialists with explicit compatibility and authorization contracts.
-- **Intelligent Routing:** Select eligible specialists using fixed, learned, or graph-inspired routing policies under consultation costs.
-- **Federated Collaboration:** Execute selected-only consultations using Flower.
-- **Dynamic Fusion:** Combine predictions through mean, reliability-weighted, or DeepSets fusion.
-- **Feedback Learning:** Support authenticated delayed feedback and federated shared-parameter updates.
-- **Version Control:** Validate, activate, reject, and roll back learned policies.
 
 ## Installation
 
