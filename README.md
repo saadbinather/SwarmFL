@@ -31,17 +31,7 @@ pip install -e .
 
 Python 3.11–3.13 is supported. A virtual environment is recommended.
 
-## Quickstart
 
-Run the synthetic CPU demonstration:
-
-```bash
-swarmfl-quickstart --output demo --feedback
-```
-
-The example runs three Flower clients and demonstrates selected-only consultation, prediction fusion, feedback verification, version activation and rollback.
-
-Results are saved to `demo/result.json`.
 
 
 ## Authors
