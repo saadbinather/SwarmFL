@@ -55,7 +55,7 @@ research/artifacts/
 research/checkpoints/
 research/logs/
 research/results.md
-research/results/breast-cancer/
+/research/results/
 research/__pycache__/
 research/breast_cancer_swarmfl.py
 
