@@ -1,5 +1,28 @@
 # Scientific and implementation limitations
 
+## Wisconsin Breast Cancer experiment
+
+The reproducible `load_breast_cancer` experiment is an engineering evaluation
+of the current APIs on a small, well-known benchmark. It is not a clinical
+study, a deployment claim, or evidence of performance on hospital data. The
+three specialists use disjoint feature groups and are trained only on the
+stratified training split; the reported test metrics come from the held-out
+20% split.
+
+The run demonstrates genuine Flower message exchange together with registry
+admission, consultation budgets, fixed routing, and mean dynamic fusion. The
+comparison is intentionally descriptive: one feature-group specialist was
+stronger than the routed/fused configurations on this split, so the experiment
+does not establish an accuracy benefit from consultation. Latencies include
+local simulated Flower transport and startup effects, and should not be read as
+production network benchmarks.
+
+The experiment currently uses the deprecated Flower `run_simulation` entry
+point, fixed routing gains, and mean fusion. It does not evaluate learned
+routing or learned fusion, remote multi-hospital deployment, privacy guarantees,
+or clinical calibration. Results should therefore be interpreted as a
+reproducible API and integration check rather than a generalization claim.
+
 ## Stable release and documentation limitations
 
 - Version `0.1.0` is published on PyPI. The documentation website does not change
