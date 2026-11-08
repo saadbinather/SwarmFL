@@ -32,6 +32,13 @@ pip install -e .
 
 Python 3.11–3.13 is supported. A virtual environment is recommended.
 
+## Hugging Face demo
+
+The lightweight synthetic Flower demo is available on the [SwarmFL Hugging Face
+Hub page](https://huggingface.co/saadbather/swarmfl). It is intended for trying
+the consultation path; it contains no research datasets, private checkpoints, or
+frozen test data.
+
 
 
 
